@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../camila"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Pixelee"
+	}
+}

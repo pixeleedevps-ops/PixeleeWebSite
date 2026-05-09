@@ -1,0 +1,25 @@
+:root {
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+
+  --brand-lime: #cef00a;
+  --brand-blue: #506ffd;
+  --brand-black: #000000;
+  --brand-white: #ffffff;
+
+  --bg-1: #ffffff;
+  --bg-2: #ffffff;
+  --surface: rgba(255, 255, 255, 0.84);
+  --surface-strong: rgba(255, 255, 255, 0.96);
+  --text-main: #000000;
+  --text-soft: rgba(0, 0, 0, 0.72);
+  --line: rgba(0, 0, 0, 0.1);
+
+  --accent: var(--brand-lime);
+  --accent-2: var(--brand-blue);
+
+  --container: min(1120px, 92vw);
+  --radius-m: 14px;
+  --radius-l: 20px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}

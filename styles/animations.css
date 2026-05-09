@@ -1,0 +1,18 @@
+.magnetic {
+  transform-style: preserve-3d;
+}
+
+.scramble-word,
+.subtitle-word {
+  display: inline-block;
+}
+
+.scramble-word {
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-particle {
+    display: none;
+  }
+}

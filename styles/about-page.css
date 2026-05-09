@@ -1,0 +1,286 @@
+.about-page-body .site-header {
+  position: sticky !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.about-page {
+  --about-container: min(1500px, 100vw);
+  --about-header-overlap: 108px;
+  background: #fff;
+  color: var(--brand-black);
+}
+
+.about-page .container {
+  align-items: center;
+  width: var(--about-container);
+}
+
+.about-hero {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 80vh;
+  margin-top: calc(var(--about-header-overlap) * -1);
+  padding: calc(clamp(7rem, 8vw, 8.5rem) + var(--about-header-overlap)) 0 clamp(4rem, 7vw, 6rem);
+  background:
+    radial-gradient(720px 420px at 88% 12%, rgba(80, 111, 253, 0.16), transparent 64%),
+    radial-gradient(640px 360px at 10% 8%, rgba(206, 240, 10, 0.22), transparent 62%),
+    linear-gradient(180deg, #fff, #f7f8f2);
+}
+
+.about-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.035) 1px, transparent 1px);
+  background-size: 96px 96px;
+  pointer-events: none;
+}
+
+.about-hero__inner {
+  position: relative;
+  margin: 0 6% 0 6.5%;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(360px, 1fr);
+  gap: clamp(2.5rem, 5vw, 5rem);
+  align-items: center;
+}
+
+.about-hero__copy {
+  display: grid;
+  gap: 1.15rem;
+}
+
+.about-hero__copy h1 {
+  max-width: 17ch;
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 4.4vw, 4.8rem);
+  line-height: 0.96;
+}
+
+.about-hero__title .scramble-word {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.about-hero__copy p:last-child {
+  max-width: 54ch;
+  color: rgba(0, 0, 0, 0.72);
+  font-size: clamp(1rem, 1.2vw, 1.14rem);
+  line-height: 1.68;
+}
+
+.about-hero__photo {
+  position: relative;
+  min-height: clamp(380px, 48vw, 580px);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 34px;
+  overflow: hidden;
+  background:
+    linear-gradient(135deg, rgba(80, 111, 253, 0.16), transparent 52%),
+    linear-gradient(180deg, #111, #050505);
+  box-shadow: 0 34px 100px rgba(0, 0, 0, 0.18);
+}
+
+.about-hero__photo::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 30% 24%, rgba(206, 240, 10, 0.35), transparent 22%),
+    linear-gradient(180deg, transparent 48%, rgba(0, 0, 0, 0.42));
+  pointer-events: none;
+}
+
+.about-hero__photo-placeholder {
+  position: absolute;
+  inset: 1.2rem;
+  z-index: 1;
+  display: grid;
+  place-content: center;
+  gap: 0.6rem;
+  color: #fff;
+  text-align: center;
+  border: 1px dashed rgba(255, 255, 255, 0.36);
+  border-radius: 24px;
+}
+
+.about-hero__photo-placeholder span {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 3.2vw, 3.2rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+.about-hero__photo-placeholder p {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.about-story {
+  padding: clamp(4.5rem, 8vw, 7.5rem) 0;
+  background: #050505;
+  color: #fff;
+}
+
+.about-story__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(320px, 1fr);
+  gap: clamp(2rem, 5vw, 5rem);
+  align-items: start;
+}
+
+.about-story__inner .eyebrow {
+  grid-column: 1 / -1;
+  color: var(--brand-lime);
+}
+
+.about-story h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2.05rem, 4.2vw, 4.25rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+  max-width: 14ch;
+}
+
+.about-story__text {
+  display: grid;
+  gap: 1rem;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: clamp(0.98rem, 1.14vw, 1.08rem);
+  line-height: 1.72;
+}
+
+.about-team {
+  padding: clamp(4.5rem, 8vw, 7.5rem) 0;
+  background: #fff;
+}
+
+.about-team__head {
+  display: grid;
+  gap: 0.85rem;
+  max-width: 680px;
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+
+.about-team__head h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4vw, 4rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.about-team__head p:last-child {
+  color: rgba(0, 0, 0, 0.72);
+  font-size: clamp(0.98rem, 1.12vw, 1.06rem);
+  line-height: 1.68;
+}
+
+.about-team__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(1rem, 2vw, 1.5rem);
+}
+
+.team-card {
+  display: grid;
+  align-content: start;
+  gap: 0.85rem;
+  min-height: 315px;
+  padding: clamp(1.15rem, 2vw, 1.65rem);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 28px;
+  background:
+    radial-gradient(260px 180px at 90% 8%, rgba(80, 111, 253, 0.14), transparent 66%),
+    #f7f7f2;
+  transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out), border-color 0.35s var(--ease-out);
+}
+
+.team-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(80, 111, 253, 0.34);
+  box-shadow: 0 26px 70px rgba(0, 0, 0, 0.12);
+}
+
+.team-card__avatar {
+  display: grid;
+  place-items: center;
+  width: 72px;
+  height: 72px;
+  color: #fff;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  font-weight: 700;
+  background: var(--brand-blue);
+  border-radius: 22px;
+}
+
+.team-card span {
+  color: #4f6100;
+  font-size: 0.74rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.team-card h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 1.65vw, 1.65rem);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+
+.team-card p {
+  color: rgba(0, 0, 0, 0.72);
+  font-size: 0.96rem;
+  line-height: 1.65;
+}
+
+@media (max-width: 960px) {
+  .about-hero__inner,
+  .about-story__inner,
+  .about-team__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-hero__copy h1,
+  .about-story h2 {
+    max-width: 16ch;
+  }
+
+  .team-card {
+    min-height: auto;
+  }
+}
+
+@media (max-width: 620px) {
+  .about-hero {
+    min-height: auto;
+    padding-top: calc(6.5rem + var(--about-header-overlap));
+  }
+
+  .about-hero__photo {
+    min-height: 320px;
+    border-radius: 22px;
+  }
+
+  .about-hero__copy h1 {
+    font-size: clamp(2.55rem, 12vw, 4.2rem);
+  }
+
+  .about-story h2,
+  .about-team__head h2 {
+    font-size: clamp(2rem, 10vw, 3.2rem);
+  }
+
+  .about-hero__photo-placeholder {
+    border-radius: 16px;
+  }
+}
