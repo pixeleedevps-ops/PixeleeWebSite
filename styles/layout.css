@@ -986,6 +986,86 @@
   color: #fff;
 }
 
+/* GAME SECTION (NEON BLASTER) */
+.game-section {
+  position: relative;
+  overflow: hidden;
+  background: #0a0a0f;
+  color: #fff;
+  padding: clamp(4rem, 7vw, 6rem) 0;
+  text-align: center;
+}
+
+.game-section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: url("../assets/images/neon-blast/¡Combate a la horda!.png");
+  background-size: 90%;
+  background-position: 10px center;
+  background-repeat: no-repeat;
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+.game-section > .container {
+  position: relative;
+  z-index: 1;
+}
+
+.game-section__intro {
+  display: grid;
+  gap: 0.75rem;
+  justify-items: center;
+  margin-bottom: clamp(2rem, 4vw, 3.5rem);
+}
+
+.game-section__intro .eyebrow {
+  color: var(--brand-lime);
+}
+
+.game-section__intro h2 {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.5vw, 4rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.game-section__intro p {
+  max-width: 56ch;
+  color: rgba(255, 255, 255, 0.6);
+  font-size: clamp(1rem, 1.2vw, 1.1rem);
+  line-height: 1.65;
+}
+
+.game-section__frame {
+  position: relative;
+  width: 100%;
+  max-width: 860px;
+  margin: 0 auto;
+  aspect-ratio: 4 / 3;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+}
+
+.game-section__frame iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+@media (max-width: 620px) {
+  .game-section__frame {
+    aspect-ratio: 4 / 3;
+    border-radius: 10px;
+  }
+}
+
 /* FOOTER */
 .site-footer {
   position: relative;
