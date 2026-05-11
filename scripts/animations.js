@@ -627,6 +627,31 @@
   });
 }
 
+  function initProcessCarousel() {
+    document.querySelectorAll("[data-process-carousel]").forEach((viewport) => {
+      const section = viewport.closest(".process-carousel-section");
+      const track = viewport.querySelector(".process-carousel__track");
+      const previous = section?.querySelector("[data-process-prev]");
+      const next = section?.querySelector("[data-process-next]");
+
+      if (!track || !previous || !next) return;
+
+      const scrollCards = (direction) => {
+        const firstCard = track.querySelector(".process-card");
+        const gap = parseFloat(getComputedStyle(track).columnGap || "0");
+        const distance = firstCard ? firstCard.getBoundingClientRect().width + gap : track.clientWidth * 0.8;
+
+        track.scrollBy({
+          left: direction * distance,
+          behavior: "smooth"
+        });
+      };
+
+      previous.addEventListener("click", () => scrollCards(-1));
+      next.addEventListener("click", () => scrollCards(1));
+    });
+  }
+
   function animateHeroContent() {
     const title = document.querySelector(".hero-title");
     const subtitle = document.querySelector(".hero-subtitle");
@@ -1787,9 +1812,9 @@
     const title = section.querySelector(".faq-section__answer h2");
     const answer = section.querySelector(".faq-section__answer p");
 
-    if (!questions.length || !image || !count || !title || !answer) return;
+    if (!questions.length || !count || !title || !answer) return;
 
-    let activeIndex = 0;
+    let activeIndex = -1;
     let audioContext = null;
 
     const playFaqSound = () => {
@@ -1826,7 +1851,7 @@
       if (typeof gsap === "undefined" || reduceMotion.matches) return;
 
       gsap.fromTo(
-        [image, count, title, answer],
+        [image, count, title, answer].filter(Boolean),
         { autoAlpha: 0, y: 18, filter: "blur(8px)" },
         {
           autoAlpha: 1,
@@ -1850,8 +1875,10 @@
         item.setAttribute("aria-pressed", String(isActive));
       });
 
-      image.src = question.dataset.faqImage;
-      image.alt = question.querySelector("strong")?.textContent.trim() || "Vista previa de pregunta frecuente";
+      if (image && question.dataset.faqImage) {
+        image.src = question.dataset.faqImage;
+        image.alt = question.querySelector("strong")?.textContent.trim() || "Vista previa de pregunta frecuente";
+      }
       count.textContent = `${String(nextIndex + 1).padStart(2, "0")} / ${String(questions.length).padStart(2, "0")}`;
       title.textContent = question.querySelector("strong")?.textContent.trim() || "Preguntas frecuentes";
       answer.textContent = question.dataset.faqAnswer || "";
@@ -1953,12 +1980,14 @@
     initGsapRuntime();
     initMobileNav();
     initMegaMenu();
+    initProcessCarousel();
     initHeaderHoverSound();
     initContactCtaEffects();
 
     if (document.querySelector(".about-page, .service-page")) {
       animateAboutHeroTitle();
       serviceSectionTitlesColorFade();
+      initFaqInteractions();
       return;
     }
 
