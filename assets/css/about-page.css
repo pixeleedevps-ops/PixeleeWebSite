@@ -250,13 +250,31 @@
     grid-template-columns: 1fr;
   }
 
+  .about-hero__inner {
+    margin: 0 1.5rem;
+  }
+
   .about-hero__copy h1,
   .about-story h2 {
     max-width: 16ch;
   }
 
+  .about-story h2 {
+    max-width: 100%;
+  }
+
+  .about-team__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
   .team-card {
     min-height: auto;
+  }
+}
+
+@media (max-width: 620px) {
+  .about-team__grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -282,5 +300,98 @@
 
   .about-hero__photo-placeholder {
     border-radius: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-hero {
+    min-height: auto;
+    padding-top: calc(5rem + var(--about-header-overlap));
+    padding-bottom: 3rem;
+  }
+
+  .about-hero__inner {
+    gap: 1.5rem;
+    margin: 0 1rem;
+  }
+
+  .about-hero__copy h1 {
+    font-size: clamp(1.8rem, 9vw, 2.6rem);
+  }
+
+  .about-hero__copy p:last-child {
+    font-size: 0.92rem;
+  }
+
+  .about-hero__photo {
+    min-height: 250px;
+    border-radius: 18px;
+  }
+
+  .about-hero__photo-placeholder {
+    inset: 0.8rem;
+    border-radius: 12px;
+  }
+
+  .about-hero__photo-placeholder span {
+    font-size: clamp(1.4rem, 6vw, 1.8rem);
+  }
+
+  .about-story {
+    padding: 3rem 0;
+  }
+
+  .about-story__inner {
+    gap: 1.2rem;
+  }
+
+  .about-story h2 {
+    font-size: clamp(1.6rem, 8vw, 2.2rem);
+  }
+
+  .about-story__text {
+    font-size: 0.92rem;
+    line-height: 1.65;
+  }
+
+  .about-team {
+    padding: 3rem 0;
+  }
+
+  .about-team__head h2 {
+    font-size: clamp(1.6rem, 8vw, 2.2rem);
+  }
+
+  .about-team__head p:last-child {
+    font-size: 0.92rem;
+  }
+
+  .about-team__grid {
+    gap: 0.85rem;
+  }
+
+  .team-card {
+    min-height: auto;
+    padding: 1rem;
+    border-radius: 18px;
+  }
+
+  .team-card:hover {
+    transform: none;
+  }
+
+  .team-card__avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    font-size: 1.1rem;
+  }
+
+  .team-card h3 {
+    font-size: clamp(1.1rem, 5vw, 1.35rem);
+  }
+
+  .team-card p {
+    font-size: 0.88rem;
   }
 }
