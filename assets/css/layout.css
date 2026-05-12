@@ -1587,21 +1587,44 @@
   }
 
   .benefits-section__panel {
-    min-height: 590px;
+    min-height: auto;
+  }
+
+  .benefits-section__content {
+    width: 100%;
+    justify-self: center;
+    justify-items: center;
   }
 
   .benefit-step {
+    width: 100%;
+    max-width: 100%;
     padding: 1.2rem;
+    inset: auto 0;
+    justify-self: stretch;
+  }
+
+  .benefit-step--right,
+  .benefit-step--left {
+    justify-self: stretch;
+    justify-items: start;
+    text-align: left;
+    inset: auto 0;
   }
 
   .benefit-step h2 {
     font-size: clamp(1.55rem, 7.2vw, 2.25rem);
-    max-width: 14ch;
+    max-width: 100%;
   }
 
   .benefit-step p {
     font-size: 0.98rem;
     line-height: 1.68;
+    max-width: 100%;
+  }
+
+  .benefit-step__lead {
+    max-width: 100%;
   }
 
   .faq-section {
@@ -1635,5 +1658,195 @@
   .faq-question:focus-visible,
   .faq-question.is-active {
     transform: none;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --container: min(1120px, 90vw);
+  }
+
+  .header-inner {
+    padding: 0.65rem 0.75rem;
+    min-height: 60px;
+    gap: 0.5rem;
+  }
+
+  .logo {
+    font-size: 1.1rem;
+    min-height: 1.8rem;
+    padding: 0.08rem 0.3rem;
+  }
+
+  .nav {
+    gap: 0.75rem;
+    font-size: 0.65rem;
+  }
+
+  .nav > a:not(.btn),
+  .nav-services__trigger,
+  .nav .btn-primary {
+    min-height: 2.5rem;
+  }
+
+  .btn-small {
+    padding: 0.65rem 0.85rem;
+    font-size: 0.65rem;
+  }
+
+  .hero-copy {
+    min-height: 80vh;
+    padding: clamp(2rem, 5vw, 3rem) 0;
+  }
+
+  .hero-content-inner {
+    padding: 0 0.5rem;
+  }
+
+  .hero-title {
+    font-size: clamp(2.2rem, 12vw, 3.2rem);
+    max-width: 100%;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(0.95rem, 4.5vw, 1.05rem);
+    max-width: 100%;
+    margin-top: 1rem;
+  }
+
+  .hero-actions {
+    gap: 0.8rem;
+    margin-top: 1.8rem;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+
+  .btn {
+    padding: 0.85rem 1.25rem;
+    font-size: 0.88rem;
+  }
+
+  .about-us {
+    margin-top: -40px;
+    padding-top: 100px;
+    padding-bottom: 60px;
+  }
+
+  .about-us__content {
+    min-height: auto;
+    padding: 4rem 0;
+  }
+
+  .about-us__content h2 {
+    font-size: clamp(1.8rem, 10vw, 2.4rem);
+  }
+
+  .about-us__media iframe {
+    height: 100%;
+    min-height: 100%;
+  }
+
+  .benefits-section__inner {
+    padding: 3rem 0;
+  }
+
+  .benefits-section__panel {
+    min-height: auto;
+  }
+
+  .benefit-step h2 {
+    font-size: clamp(1.3rem, 6vw, 1.65rem);
+  }
+
+  .benefits-section__intro h2 {
+    font-size: clamp(1.6rem, 8vw, 2.2rem);
+  }
+
+  .faq-section {
+    padding: 3rem 0;
+  }
+
+  .faq-section__inner {
+    gap: 1.5rem;
+  }
+
+  .faq-section__answer {
+    min-height: auto;
+    gap: 0.5rem;
+  }
+
+  .faq-section__answer h2 {
+    font-size: clamp(1.25rem, 6vw, 1.65rem);
+    max-width: 100%;
+  }
+
+  .faq-section__answer p {
+    font-size: 0.92rem;
+  }
+
+  .faq-question {
+    padding: 0.75rem;
+    gap: 0.7rem;
+    border-radius: 12px;
+  }
+
+  .faq-question strong {
+    font-size: 0.9rem;
+  }
+
+  .faq-section__image-wrap {
+    border-radius: 14px;
+  }
+
+  .game-section__intro h2 {
+    font-size: clamp(1.6rem, 8vw, 2.4rem);
+  }
+
+  .game-section__frame {
+    border-radius: 8px;
+  }
+
+  .site-footer__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .site-footer__brand,
+  .site-footer__column {
+    padding: 1.5rem;
+  }
+
+  .site-footer__brand {
+    gap: 1.5rem;
+  }
+
+  .site-footer__column {
+    gap: 2rem;
+  }
+
+  .site-footer__signup h2 {
+    font-size: clamp(1.2rem, 6vw, 1.55rem);
+  }
+
+  .site-footer__signup p {
+    font-size: 0.92rem;
+  }
+
+  .site-footer__bottom {
+    grid-template-columns: 1fr;
+    gap: 0.8rem;
+    padding-block: 1.2rem;
+    text-align: center;
+  }
+
+  .site-footer__legal {
+    justify-content: center;
+    gap: 1rem;
+    font-size: 0.85rem;
   }
 }
