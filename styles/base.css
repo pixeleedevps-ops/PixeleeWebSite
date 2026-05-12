@@ -6,8 +6,8 @@ html,
 body {
   margin: 0;
   padding: 0;
-  width: 110%;
-  max-width: 105%;
+  width: 100%;
+  max-width: 100%;
 }
 
 html {
