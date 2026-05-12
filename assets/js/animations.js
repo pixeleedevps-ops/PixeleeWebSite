@@ -1,6 +1,9 @@
 (function () {
   const SCRAMBLE_CHARS = "01233456789";
   const BRAND_NAME = "Pixelee";
+  const scriptUrl = document.currentScript?.src || new URL("assets/js/animations.js", window.location.href).href;
+  const assetBaseUrl = new URL("../", scriptUrl);
+  const assetUrl = (path) => new URL(path, assetBaseUrl).href;
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
   const isMobileViewport = () => window.matchMedia("(max-width: 768px)").matches;
   const prefersCoarsePointer = window.matchMedia("(pointer: coarse)").matches;
@@ -196,7 +199,7 @@
   }
 
   function createTypeSound() {
-    const audio = new Audio("assets/audio/keyboard-typing.mp3");
+    const audio = new Audio(assetUrl("audio/keyboard-typing.mp3"));
     audio.preload = "auto";
     audio.volume = 0.22;
     const startOffset = 0.18;
@@ -308,7 +311,7 @@
 
     if (!contactButtons.length) return;
 
-    const audio = new Audio("assets/audio/chutter-click-494024.mp3");
+    const audio = new Audio(assetUrl("audio/chutter-click-494024.mp3"));
     audio.preload = "auto";
     audio.volume = 0.28;
     let lastPlayTime = 0;

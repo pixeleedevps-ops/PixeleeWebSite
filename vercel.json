@@ -1,0 +1,41 @@
+{
+  "cleanUrls": true,
+  "trailingSlash": true,
+  "redirects": [
+    {
+      "source": "/index.html",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/acerca-de-pixelee.html",
+      "destination": "/nosotros/",
+      "permanent": true
+    },
+    {
+      "source": "/beneficios.html",
+      "destination": "/beneficios/",
+      "permanent": true
+    },
+    {
+      "source": "/desarrollo-web.html",
+      "destination": "/desarrollo-web/",
+      "permanent": true
+    },
+    {
+      "source": "/desarrollo-a-la-medida.html",
+      "destination": "/desarrollo-a-la-medida/",
+      "permanent": true
+    },
+    {
+      "source": "/marketing-digital.html",
+      "destination": "/marketing-digital/",
+      "permanent": true
+    },
+    {
+      "source": "/diseno-de-marca.html",
+      "destination": "/diseno-de-marca/",
+      "permanent": true
+    }
+  ]
+}

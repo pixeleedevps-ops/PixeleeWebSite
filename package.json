@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "optimize:benefits-video": "node scripts/optimize-benefits-video.mjs"
+    "optimize:benefits-video": "node tools/optimize-benefits-video.mjs"
   },
   "devDependencies": {
     "ffmpeg-static": "^5.2.0"
