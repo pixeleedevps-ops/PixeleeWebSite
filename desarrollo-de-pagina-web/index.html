@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Diseño y desarrollo de páginas web profesionales para empresas: landing pages, sitios corporativos, ecommerce, SEO técnico, carga rápida y conexión con WhatsApp." />
     <title>Diseño de páginas web profesionales | Pixelee</title>
+    <link rel="icon" href="../favicon.ico" sizes="any" />
+    <link rel="icon" type="image/png" href="../assets/images/brand/pixelee-isotype-512.png" />
+    <link rel="apple-touch-icon" href="../assets/images/brand/pixelee-isotype-512.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
@@ -31,6 +34,7 @@
 
     <main class="campaign-main" id="inicio">
       <section class="campaign-hero">
+        <div class="campaign-hero__interactive-grid" aria-hidden="true"></div>
         <div class="container campaign-hero__grid">
           <div class="campaign-hero__copy">
             <p class="campaign-kicker">+50 negocios impulsados digitalmente</p>
@@ -40,28 +44,37 @@
               <a href="https://wa.link/01a8m1" class="btn btn-primary magnetic">Agendar asesoría gratuita</a>
               <a href="#proyectos" class="btn btn-ghost magnetic">Ver proyectos</a>
             </div>
-            <div class="campaign-proof" aria-label="Beneficios principales">
-              <div class="proof-item"><span>01</span><div><strong>Entrega rápida</strong>de 7 a 15 días</div></div>
-              <div class="proof-item"><span>02</span><div><strong>SEO optimizado</strong>desde el inicio</div></div>
-              <div class="proof-item"><span>03</span><div><strong>100% responsive</strong>en todos los dispositivos</div></div>
-              <div class="proof-item"><span>04</span><div><strong>Soporte continuo</strong>después del lanzamiento</div></div>
+          </div>
+
+          <div class="campaign-device-stage" aria-label="Ejemplos de páginas web en computador y celular">
+            <div class="campaign-device campaign-device--desktop">
+              <div class="campaign-device__bar">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="campaign-device__screen">
+                <img src="../assets/images/campaign/gestionar-desktop.png" alt="Ejemplo de página web profesional en computador" />
+              </div>
+            </div>
+            <div class="campaign-device campaign-device--phone">
+              <div class="campaign-device__speaker"></div>
+              <div class="campaign-device__screen">
+                <img src="../assets/images/campaign/marques-mobile.png" alt="Ejemplo de página web responsive en celular" />
+              </div>
+            </div>
+            <div class="campaign-device campaign-device--tablet">
+              <div class="campaign-device__screen">
+                <img src="../assets/images/campaign/guardianes-desktop.png" alt="Ejemplo de landing educativa con diseño profesional" />
+              </div>
             </div>
           </div>
 
-          <div class="hero-visual" aria-label="Diseño web responsive de Pixelee">
-            <div class="hero-visual__glow"></div>
-            <div class="device device--desktop">
-              <img src="../assets/images/services/cliente-1-optimized.jpg" alt="Ejemplo de página web desarrollada por Pixelee" />
-            </div>
-            <div class="device device--phone">
-              <img src="../assets/images/services/Screenshot-2024-01-15-at-12-51-26-Lockwin-Specialist-Pte-Ltd-Lock-Services.png" alt="Versión móvil de una página web profesional" />
-            </div>
-            <div class="device device--laptop">
-              <img src="../assets/images/services/czarl-optimized.jpg" alt="Página web corporativa con diseño moderno" />
-            </div>
-            <div class="metric-card metric-card--one"><strong>+320%</strong><span>más conversiones</span></div>
-            <div class="metric-card metric-card--two"><strong>SEO</strong><span>optimizado</span></div>
-            <div class="metric-card metric-card--three"><strong>&lt;2s</strong><span>carga rápida</span></div>
+          <div class="campaign-proof" aria-label="Beneficios principales">
+            <div class="proof-item"><span>01</span><div><strong>Entrega rápida</strong>Desarrollamos tu página web entre 7 y 15 días, según el alcance del proyecto.</div></div>
+            <div class="proof-item"><span>02</span><div><strong>SEO optimizado</strong>Estructura inicial lista para mejorar visibilidad en Google desde el lanzamiento.</div></div>
+            <div class="proof-item"><span>03</span><div><strong>100% responsive</strong>Tu web se adapta correctamente a celular, tablet y computador.</div></div>
+            <div class="proof-item"><span>04</span><div><strong>Soporte continuo</strong>Te acompañamos después de publicar para mantener todo funcionando.</div></div>
           </div>
         </div>
       </section>
@@ -82,82 +95,146 @@
         </div>
       </section>
 
-      <section class="campaign-section" id="servicios">
-        <div class="container">
-          <div class="section-heading">
+      <section class="campaign-section campaign-services-section" id="servicios">
+        <div class="container campaign-services">
+          <div class="section-heading campaign-services__heading">
             <p>Nuestros servicios</p>
             <h2>Soluciones web que <span class="campaign-highlight">impulsan tu negocio</span></h2>
+            <span>Creamos sitios web estratégicos que generan confianza, atraen clientes y aumentan tus ventas.</span>
           </div>
           <div class="services-grid">
             <article class="service-card">
-              <span class="service-icon">LP</span>
+              <div class="service-card__top">
+                <span class="service-icon">LP</span>
+                <a href="https://wa.link/01a8m1" class="service-card__arrow" aria-label="Más información sobre landing pages">→</a>
+              </div>
               <h3>Landing pages</h3>
               <p>Landing pages para campañas publicitarias, generación de leads y páginas enfocadas en conversión.</p>
               <a href="https://wa.link/01a8m1">Más información →</a>
               <div class="service-card__image"><img src="../assets/images/services/cliente-1-optimized.jpg" alt="Landing page para campañas digitales" /></div>
             </article>
             <article class="service-card">
-              <span class="service-icon">SC</span>
+              <div class="service-card__top">
+                <span class="service-icon">SC</span>
+                <a href="https://wa.link/01a8m1" class="service-card__arrow" aria-label="Más información sobre sitios corporativos">→</a>
+              </div>
               <h3>Sitios corporativos</h3>
               <p>Diseño de páginas web para empresas que necesitan una imagen profesional, clara y confiable.</p>
               <a href="https://wa.link/01a8m1">Más información →</a>
               <div class="service-card__image"><img src="../assets/images/services/Screenshot-2024-01-15-at-12-45-55-CZARL-architects-Architecture-Interior-Design.png" alt="Sitio corporativo profesional" /></div>
             </article>
             <article class="service-card">
-              <span class="service-icon">EC</span>
+              <div class="service-card__top">
+                <span class="service-icon">EC</span>
+                <a href="https://wa.link/01a8m1" class="service-card__arrow" aria-label="Más información sobre ecommerce">→</a>
+              </div>
               <h3>Ecommerce</h3>
               <p>Tiendas online pensadas para vender 24/7, mostrar productos y facilitar solicitudes o compras.</p>
               <a href="https://wa.link/01a8m1">Más información →</a>
               <div class="service-card__image"><img src="../assets/images/services/Screenshot-2024-01-15-at-12-55-09-Home-Urmet.png" alt="Diseño de tienda online" /></div>
             </article>
-            <article class="service-card">
-              <span class="service-icon">RS</span>
-              <h3>Sistemas de reservas</h3>
-              <p>Agenda citas, reservas o servicios de forma simple con formularios y flujos conectados.</p>
-              <a href="https://wa.link/01a8m1">Más información →</a>
-              <div class="service-card__image"><img src="../assets/images/services/hotel-telegraph-optimized.jpg" alt="Página web con sistema de reservas" /></div>
+          </div>
+          <div class="services-benefits" aria-label="Beneficios de nuestros servicios web">
+            <article>
+              <span>✦</span>
+              <div>
+                <h3>Diseño estratégico</h3>
+                <p>Enfocado en resultados</p>
+              </div>
             </article>
-            <article class="service-card">
-              <span class="service-icon">AI</span>
-              <h3>Automatizaciones</h3>
-              <p>Conecta tu web con WhatsApp, formularios, CRM y respuestas automáticas para captar más clientes.</p>
-              <a href="https://wa.link/01a8m1">Más información →</a>
-              <div class="service-card__image"><img src="../assets/images/services/Screenshot-2024-01-15-at-12-55-34-Home-Page-Nitesh-Land.png" alt="Automatización web para empresas" /></div>
+            <article>
+              <span>↗</span>
+              <div>
+                <h3>Rápido y optimizado</h3>
+                <p>Velocidad y rendimiento garantizado</p>
+              </div>
             </article>
-            <article class="service-card">
-              <span class="service-icon">SEO</span>
-              <h3>SEO y posicionamiento</h3>
-              <p>Optimizamos tu página web para que aparezcas mejor en Google y atraigas clientes calificados.</p>
-              <a href="https://wa.link/01a8m1">Más información →</a>
-              <div class="service-card__image"><img src="../assets/images/services/Screenshot-2024-01-15-at-12-51-26-Lockwin-Specialist-Pte-Ltd-Lock-Services.png" alt="SEO para páginas web profesionales" /></div>
+            <article>
+              <span>✓</span>
+              <div>
+                <h3>Seguro y confiable</h3>
+                <p>Protegemos tu información</p>
+              </div>
+            </article>
+            <article>
+              <span>☏</span>
+              <div>
+                <h3>Acompañamiento</h3>
+                <p>Soporte continuo y cercano</p>
+              </div>
             </article>
           </div>
         </div>
       </section>
 
-      <section class="campaign-section" id="proyectos">
+      <section class="campaign-section testimonials-section" id="proyectos">
+        <div class="testimonials-lines testimonials-lines--left" aria-hidden="true"></div>
+        <div class="testimonials-lines testimonials-lines--right" aria-hidden="true"></div>
         <div class="container results-panel">
-          <p class="campaign-kicker">Resultados reales</p>
-          <h2>Empresas que ya están creciendo con Pixelee</h2>
-          <div class="results-grid">
-            <article class="result-card"><img src="../assets/images/services/hotel-telegraph-optimized.jpg" alt="Caso de éxito web para reservas" /><strong>+250%</strong><p>más solicitudes desde su nueva página web.</p></article>
-            <article class="result-card"><img src="../assets/images/services/czarl-optimized.jpg" alt="Caso de éxito web corporativa" /><strong>+180%</strong><p>más consultas calificadas con un sitio profesional.</p></article>
-            <article class="result-card"><img src="../assets/images/services/Screenshot-2024-01-15-at-12-55-09-Home-Urmet.png" alt="Caso de éxito ecommerce" /><strong>+320%</strong><p>más ventas online con una estructura enfocada en conversión.</p></article>
+
+          <div class="testimonials-intro">
+            <p class="campaign-kicker">Resultados reales</p>
+            <h2>Clientes que confiaron en Pixelee para crecer</h2>
+            <p class="results-panel__subtitle">Empresas y emprendedores que lograron más resultados, más clientes y más ventas con nuestros sitios web.</p>
+          </div>
+          
+          <div class="testimonials-grid">
+            <article class="testimonial-card"><div class="testimonial-card__top"><span>★★★★★</span><em>”</em></div><p>La página quedó clara, rápida y lista para enviar tráfico de campañas. Empezamos a recibir más contactos desde la primera semana.</p><div class="testimonial-card__author"><div><strong>Laura Méndez</strong><small>Servicios profesionales</small></div></div></article>
+            <article class="testimonial-card"><div class="testimonial-card__top"><span>★★★★★</span><em>”</em></div><p>Necesitábamos una web que explicara mejor nuestra oferta. Pixelee ordenó el mensaje y mejoró mucho la experiencia móvil.</p><div class="testimonial-card__author"><div><strong>Andrés Rojas</strong><small>Consultoría empresarial</small></div></div></article>
+            <article class="testimonial-card"><div class="testimonial-card__top"><span>★★★★★</span><em>”</em></div><p>El proceso fue muy fácil. Nos entregaron una landing profesional, con WhatsApp integrado y estructura lista para Google Ads.</p><div class="testimonial-card__author"><div><strong>Camila Torres</strong><small>Marca comercial</small></div></div></article>
+            <article class="testimonial-card"><div class="testimonial-card__top"><span>★★★★★</span><em>”</em></div><p>Antes teníamos una web lenta y confusa. Ahora los clientes entienden rápido qué hacemos y nos escriben con más intención.</p><div class="testimonial-card__author"><div><strong>Santiago Pérez</strong><small>Negocio local</small></div></div></article>
+            <article class="testimonial-card"><div class="testimonial-card__top"><span>★★★★★</span><em>”</em></div><p>Nos ayudaron a convertir una idea suelta en una página completa, visualmente sólida y enfocada en generar cotizaciones.</p><div class="testimonial-card__author"><div><strong>Valentina López</strong><small>Emprendedora</small></div></div></article>
+            <article class="testimonial-card"><div class="testimonial-card__top"><span>★★★★★</span><em>”</em></div><p>El diseño quedó moderno sin perder claridad. La web carga rápido y se ve muy bien desde celular, que era nuestra prioridad.</p><div class="testimonial-card__author"><div><strong>Daniel Medina</strong><small>Tecnología</small></div></div></article>
+            <article class="testimonial-card"><div class="testimonial-card__top"><span>★★★★★</span><em>”</em></div><p>La comunicación fue excelente. Nos guiaron con textos, estructura y llamados a la acción para aprovechar mejor la visita.</p><div class="testimonial-card__author"><div><strong>María Camargo</strong><small>Educación</small></div></div></article>
+            <article class="testimonial-card"><div class="testimonial-card__top"><span>★★★★★</span><em>”</em></div><p>Quedamos con una web más profesional y fácil de compartir. La integración con WhatsApp nos ayudó a responder más rápido.</p><div class="testimonial-card__author"><div><strong>Javier Acosta</strong><small>Servicios</small></div></div></article>
+          </div>
+          <div class="testimonials-stats">
+            <div><span>↗</span>+150 proyectos entregados</div>
+            <div><span>◎</span>Clientes en +8 países</div>
+            <div><span>◠</span>Soporte y acompañamiento continuo</div>
           </div>
         </div>
       </section>
 
-      <section class="campaign-section" id="proceso">
-        <div class="container">
-          <div class="section-heading">
-            <p>Así trabajamos</p>
-            <h2>Un proceso simple, claro y efectivo</h2>
+      <section class="campaign-section process-carousel-section" id="proceso" aria-labelledby="process-title">
+        <div class="container process-carousel">
+          <div class="process-carousel__intro">
+            <p class="eyebrow">Así trabajamos</p>
+            <h2 id="process-title"><span>Nuestro</span> proceso</h2>
+            <p>Desde la estrategia hasta el lanzamiento, creamos páginas web rápidas, claras y listas para convertir visitantes en clientes.</p>
+            <div class="process-carousel__controls" aria-label="Controles del carrusel de proceso">
+              <button class="process-carousel__button" type="button" data-process-prev aria-label="Ver paso anterior">←</button>
+              <button class="process-carousel__button" type="button" data-process-next aria-label="Ver siguiente paso">→</button>
+            </div>
           </div>
-          <div class="process-line">
-            <article class="process-step"><span>1</span><h3>Estrategia</h3><p>Analizamos tu negocio, tus clientes y el objetivo de la página.</p></article>
-            <article class="process-step"><span>2</span><h3>Diseño</h3><p>Creamos una experiencia moderna, limpia y enfocada en convertir.</p></article>
-            <article class="process-step"><span>3</span><h3>Desarrollo</h3><p>Construimos una web rápida, responsive y optimizada para SEO.</p></article>
-            <article class="process-step"><span>4</span><h3>Lanzamiento</h3><p>Publicamos la página y dejamos todo listo para captar clientes.</p></article>
+          <div class="process-carousel__viewport" data-process-carousel>
+            <div class="process-carousel__track">
+              <article class="process-card process-card--soft">
+                <span>1</span>
+                <h3>Estrategia inicial</h3>
+                <p>Analizamos tu negocio, tus clientes, tus objetivos comerciales y el mensaje que debe comunicar la página.</p>
+              </article>
+              <article class="process-card process-card--lime">
+                <span>2</span>
+                <h3>Estructura web</h3>
+                <p>Definimos secciones, navegación, llamados a la acción y recorrido para que el usuario llegue rápido a contactarte.</p>
+              </article>
+              <article class="process-card process-card--teal">
+                <span>3</span>
+                <h3>Diseño visual</h3>
+                <p>Creamos una interfaz profesional, responsive y alineada con tu marca para generar confianza desde el primer vistazo.</p>
+              </article>
+              <article class="process-card process-card--blue">
+                <span>4</span>
+                <h3>Desarrollo SEO</h3>
+                <p>Construimos tu página con carga rápida, estructura SEO base, conexión a WhatsApp y formularios de contacto.</p>
+              </article>
+              <article class="process-card process-card--dark">
+                <span>5</span>
+                <h3>Lanzamiento</h3>
+                <p>Publicamos la web, revisamos compatibilidad móvil y dejamos todo preparado para campañas y medición.</p>
+              </article>
+            </div>
           </div>
         </div>
       </section>
@@ -222,5 +299,50 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
     <script src="../assets/js/animations.js"></script>
+    <script>
+      (() => {
+        const hero = document.querySelector(".campaign-hero");
+        const grid = document.querySelector(".campaign-hero__interactive-grid");
+        if (!hero || !grid || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+        const cellSize = 92;
+        let columns = 0;
+        let rows = 0;
+        let activeCell = null;
+
+        const buildGrid = () => {
+          const nextColumns = Math.ceil(hero.offsetWidth / cellSize);
+          const nextRows = Math.ceil(hero.offsetHeight / cellSize);
+          if (nextColumns === columns && nextRows === rows) return;
+
+          columns = nextColumns;
+          rows = nextRows;
+          grid.style.setProperty("--grid-columns", columns);
+          grid.replaceChildren(...Array.from({ length: columns * rows }, () => document.createElement("span")));
+        };
+
+        const lightCell = (event) => {
+          const rect = hero.getBoundingClientRect();
+          const column = Math.floor((event.clientX - rect.left) / cellSize);
+          const row = Math.floor((event.clientY - rect.top) / cellSize);
+          const index = row * columns + column;
+          const cell = grid.children[index];
+
+          if (!cell || cell === activeCell) return;
+
+          activeCell?.classList.remove("is-lit");
+          activeCell = cell;
+          cell.classList.add("is-lit");
+        };
+
+        buildGrid();
+        hero.addEventListener("pointermove", lightCell);
+        hero.addEventListener("pointerleave", () => {
+          activeCell?.classList.remove("is-lit");
+          activeCell = null;
+        });
+        window.addEventListener("resize", buildGrid);
+      })();
+    </script>
   </body>
 </html>
