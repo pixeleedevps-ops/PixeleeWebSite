@@ -36,6 +36,16 @@
       "source": "/diseno-de-marca.html",
       "destination": "/diseno-de-marca/",
       "permanent": true
+    },
+    {
+      "source": "/diseño-de-marca/",
+      "destination": "/diseno-de-marca/",
+      "permanent": true
+    },
+    {
+      "source": "/diseño-de-paginas-web/",
+      "destination": "/desarrollo-web/",
+      "permanent": true
     }
   ]
 }

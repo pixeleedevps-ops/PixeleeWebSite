@@ -20,3 +20,8 @@ RewriteRule ^marketing-digital\.html$ /marketing-digital/ [R=301,L]
 
 RewriteCond %{THE_REQUEST} \s/+diseno-de-marca\.html[\s?] [NC]
 RewriteRule ^diseno-de-marca\.html$ /diseno-de-marca/ [R=301,L]
+
+RewriteRule ^diseño-de-marca/?$ /diseno-de-marca/ [R=301,L]
+RewriteRule ^dise%C3%B1o-de-marca/?$ /diseno-de-marca/ [R=301,L]
+RewriteRule ^diseño-de-paginas-web/?$ /desarrollo-web/ [R=301,L]
+RewriteRule ^dise%C3%B1o-de-paginas-web/?$ /desarrollo-web/ [R=301,L]
