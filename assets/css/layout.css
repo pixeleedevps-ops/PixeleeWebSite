@@ -558,26 +558,9 @@
 
 .nav .btn-primary {
   --cta-base-bg: #152326;
-  background: #152326;
-  color: #dcebc7;
+  --cta-base-color: #dcebc7;
+  --cta-hover-color: #fff;
   box-shadow: none;
-}
-
-.nav .btn-primary[href^="mailto:"] {
-  background:
-    linear-gradient(90deg, var(--brand-blue) 0 50%, transparent 50% 100%),
-    var(--cta-base-bg);
-  background-size: 200% 100%, 100% 100%;
-  background-position: 100% 0, 0 0;
-}
-
-.nav .btn-primary[href^="mailto:"].is-cta-hovering {
-  color: #fff;
-  background-position: 0 0, 0 0;
-}
-
-.nav .btn-primary[href^="mailto:"].is-cta-leaving {
-  background-position: 100% 0, 0 0;
 }
 
 /* HERO */

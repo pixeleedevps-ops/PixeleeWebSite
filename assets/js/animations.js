@@ -307,7 +307,7 @@
   }
 
   function initContactCtaEffects() {
-    const contactButtons = document.querySelectorAll('a[href^="mailto:"]');
+    const contactButtons = document.querySelectorAll(".btn");
 
     if (!contactButtons.length) return;
 
