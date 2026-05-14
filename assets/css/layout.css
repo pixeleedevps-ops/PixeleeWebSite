@@ -97,17 +97,25 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 0.5rem;
   min-height: 2.1rem;
-  padding: 0.1rem 0.35rem;
-  border: 2px solid rgba(35, 43, 48, 0.86);
-  border-radius: 2px;
+  padding: 0.1rem 0;
   line-height: 1;
   color: var(--text-main);
   font-family: var(--font-display);
   font-size: 1.3rem;
   font-weight: 700;
   letter-spacing: -0.03em;
-  transition: color 0.35s var(--ease-out), border-color 0.35s var(--ease-out);
+  transition: color 0.35s var(--ease-out);
+}
+
+.logo::before {
+  content: "";
+  width: 1.9rem;
+  height: 1.9rem;
+  flex: 0 0 1.9rem;
+  background: url("../images/brand/pixelee-isotype.png") center / contain no-repeat;
+  filter: drop-shadow(0 0 16px rgba(206, 240, 10, 0.2));
 }
 
 .nav {
@@ -533,7 +541,6 @@
 
 .site-header.is-over-benefits .logo {
   color: #fff;
-  border-color: rgba(255, 255, 255, 0.82);
 }
 
 .site-header.is-over-benefits .nav {
@@ -1235,16 +1242,24 @@
 
 .site-footer__logo {
   display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
   width: fit-content;
-  padding: 0.12rem 0.42rem;
   color: #fff;
-  border: 2px solid rgba(255, 255, 255, 0.84);
-  border-radius: 3px;
   font-family: var(--font-display);
   font-size: clamp(1.45rem, 2vw, 2.05rem);
   font-weight: 700;
   letter-spacing: -0.04em;
   line-height: 1;
+}
+
+.site-footer__logo::before {
+  content: "";
+  width: 2.15rem;
+  height: 2.15rem;
+  flex: 0 0 2.15rem;
+  background: url("../images/brand/pixelee-isotype.png") center / contain no-repeat;
+  filter: drop-shadow(0 0 18px rgba(206, 240, 10, 0.24));
 }
 
 .site-footer__signup {
