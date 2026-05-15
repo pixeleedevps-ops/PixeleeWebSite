@@ -10,8 +10,22 @@
     var(--campaign-blue-night);
 }
 
+.process-carousel-section .process-carousel {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: minmax(260px, 26vw) minmax(0, 1fr);
+    gap: clamp(2rem, 5vw, 5rem);
+    align-items: start;
+    width: 100% !important;
+    max-width: none;
+    margin-inline: 0;
+    padding-inline: 0;
+}
+
+
 .campaign-body .container {
-  width: min(1270px, 90vw);
+  width: min(1500px, 90vw);
 }
 
 .campaign-header {
@@ -29,8 +43,8 @@
   grid-template-columns: auto 1fr auto;
   align-items: center;
   gap: 2rem;
-  min-height: 74px;
-  padding: 0.8rem 1rem 0.8rem 1.3rem;
+  min-height: 84px;
+  padding: 0.75rem 1rem 0.75rem 1.25rem;
   background: rgba(255, 255, 255, 0.82);
   border: 1px solid rgba(8, 17, 31, 0.08);
   border-radius: 16px;
@@ -42,18 +56,21 @@
 .campaign-logo {
   display: inline-flex;
   align-items: center;
-  min-height: 3rem;
+  min-height: clamp(3.5rem, 5.1vw, 4.35rem);
   color: #fff;
   font-size: 0;
 }
 
 .campaign-logo::before {
   content: "";
-  width: clamp(10rem, 16vw, 13rem);
-  height: clamp(2.55rem, 4vw, 3.1rem);
+  width: clamp(13.25rem, 20vw, 16.5rem);
+  height: clamp(2.55rem, 3.9vw, 3.35rem);
   flex: 0 0 auto;
-  background: url("../images/brand/Logos-02.svg") left center / contain no-repeat;
-  filter: brightness(0) invert(1);
+  background: url("../images/brand/Pixelee%20claro.svg") left center / contain no-repeat;
+}
+
+.campaign-header .campaign-logo::before {
+  background-image: url("../images/brand/Pixelee%20negro.svg");
 }
 
 .campaign-menu {
@@ -1239,6 +1256,14 @@
   cursor: pointer;
 }
 
+.faq-card__trigger strong {
+  color: white;
+  font-weight: 900;
+  font-size: 1.1rem;
+  transition: transform 0.3s var(--ease-out), color 0.3s var(--ease-out);
+}
+
+
 .faq-card__trigger span {
   color: var(--brand-lime);
   font-weight: 900;
@@ -1456,7 +1481,7 @@
   }
 
   .campaign-logo::before {
-    width: 9rem;
+    width: 10.7rem;
     height: 2.15rem;
   }
 
@@ -1670,7 +1695,7 @@
   }
 
   .process-carousel-section .process-carousel {
-    width: 100%;
+    width: 100% !important;
     gap: 1.6rem;
     padding-inline: 0;
   }

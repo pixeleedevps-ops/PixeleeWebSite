@@ -8,9 +8,8 @@ RewriteCond %{THE_REQUEST} \s/(.+/)?index\.html[\s?] [NC]
 RewriteRule ^(.*/)?index\.html$ /$1 [R=301,L]
 
 Redirect 301 /index.html /
-Redirect 301 /pixelee.co/nosotros/index.html /nosotros/
+Redirect 301 /nosotros/index.html /nosotros/
 Redirect 301 /servicios/index.html /servicios/
-Redirect 301 /contacto/index.html /contacto/
 Redirect 301 /beneficios.html /beneficios/
 Redirect 301 /desarrollo-web.html /servicios/desarrollo-web/
 Redirect 301 /desarrollo-web/ /servicios/desarrollo-web/

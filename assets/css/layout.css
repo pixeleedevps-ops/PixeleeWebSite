@@ -81,8 +81,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  min-height: 76px;
-  padding: 0.95rem 1rem;
+  min-height: 84px;
+  padding: 0.85rem 1.05rem;
   gap: 1.5rem;
   background: rgba(255, 255, 255, 0.741);
   border: 1px solid rgba(0, 0, 0, 0.06);
@@ -97,7 +97,7 @@
   display: inline-flex;
   align-items: center;
   justify-content: flex-start;
-  min-height: 3rem;
+  min-height: clamp(3.5rem, 5.1vw, 4.35rem);
   padding: 0.1rem 0;
   line-height: 1;
   color: var(--text-main);
@@ -107,10 +107,10 @@
 
 .logo::before {
   content: "";
-  width: clamp(10rem, 16vw, 13rem);
-  height: clamp(2.55rem, 4vw, 3.1rem);
+  width: clamp(10.25rem, 20vw, 16.5rem);
+  height: clamp(2.55rem, 1.9vw, 3.35rem);
   flex: 0 0 auto;
-  background: url("../images/brand/Logos-02.svg") left center / contain no-repeat;
+  background: url("../images/brand/Pixelee%20negro.svg") left center / contain no-repeat;
 }
 
 .nav {
@@ -539,7 +539,7 @@
 }
 
 .site-header.is-over-benefits .logo::before {
-  filter: brightness(0) invert(1);
+  background-image: url("../images/brand/Pixelee%20claro.svg");
 }
 
 .site-header.is-over-benefits .nav {
@@ -1242,23 +1242,19 @@
 .site-footer__logo {
   display: inline-flex;
   align-items: center;
-  gap: 0.55rem;
   width: fit-content;
+  min-height: 2.4rem;
   color: #fff;
-  font-family: var(--font-display);
-  font-size: clamp(1.45rem, 2vw, 2.05rem);
-  font-weight: 700;
-  letter-spacing: -0.04em;
+  font-size: 0;
   line-height: 1;
 }
 
 .site-footer__logo::before {
   content: "";
-  width: 2.15rem;
-  height: 2.15rem;
-  flex: 0 0 2.15rem;
-  background: url("../images/brand/pixelee-isotype.png") center / contain no-repeat;
-  filter: drop-shadow(0 0 18px rgba(206, 240, 10, 0.24));
+  width: clamp(11rem, 18vw, 14.5rem);
+  height: clamp(2.1rem, 3.4vw, 2.8rem);
+  flex: 0 0 auto;
+  background: url("../images/brand/Pixelee%20claro.svg") left center / contain no-repeat;
 }
 
 .site-footer__signup {
@@ -1665,17 +1661,17 @@
 
   .header-inner {
     padding: 0.65rem 0.75rem;
-    min-height: 60px;
+    min-height: 66px;
     gap: 0.5rem;
   }
 
   .logo {
-    min-height: 2.25rem;
+    min-height: 2.65rem;
     padding: 0.08rem 0;
   }
 
   .logo::before {
-    width: 8.9rem;
+    width: 10.7rem;
     height: 2.15rem;
   }
 
