@@ -1,5 +1,9 @@
 {
+  "name": "pixelee-website",
+  "private": true,
   "scripts": {
+    "serve": "python3 -m http.server 8000",
+    "check:links": "node tools/check-local-links.mjs",
     "optimize:benefits-video": "node tools/optimize-benefits-video.mjs"
   },
   "devDependencies": {

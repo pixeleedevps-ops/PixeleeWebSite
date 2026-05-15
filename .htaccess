@@ -1,27 +1,45 @@
+DirectoryIndex index.html
+Options -Indexes
+
 RewriteEngine On
 
-RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
-RewriteRule ^index\.html$ / [R=301,L]
 
-RewriteCond %{THE_REQUEST} \s/+acerca-de-pixelee\.html[\s?] [NC]
-RewriteRule ^acerca-de-pixelee\.html$ /nosotros/ [R=301,L]
+RewriteCond %{THE_REQUEST} \s/(.+/)?index\.html[\s?] [NC]
+RewriteRule ^(.*/)?index\.html$ /$1 [R=301,L]
 
-RewriteCond %{THE_REQUEST} \s/+beneficios\.html[\s?] [NC]
-RewriteRule ^beneficios\.html$ /beneficios/ [R=301,L]
+Redirect 301 /index.html /
+Redirect 301 /pixelee.co/nosotros/index.html /nosotros/
+Redirect 301 /servicios/index.html /servicios/
+Redirect 301 /contacto/index.html /contacto/
+Redirect 301 /beneficios.html /beneficios/
+Redirect 301 /desarrollo-web.html /servicios/desarrollo-web/
+Redirect 301 /desarrollo-web/ /servicios/desarrollo-web/
+Redirect 301 /desarrollo-a-la-medida.html /servicios/desarrollo-a-la-medida/
+Redirect 301 /desarrollo-a-la-medida/ /servicios/desarrollo-a-la-medida/
+Redirect 301 /marketing-digital.html /servicios/marketing-digital/
+Redirect 301 /marketing-digital/ /servicios/marketing-digital/
+Redirect 301 /diseno-de-marca.html /servicios/diseno-de-marca/
+Redirect 301 /diseno-de-marca/ /servicios/diseno-de-marca/
+Redirect 301 /diseño-de-marca/ /servicios/diseno-de-marca/
+Redirect 301 /diseño-de-paginas-web/ /servicios/desarrollo-web/
 
-RewriteCond %{THE_REQUEST} \s/+desarrollo-web\.html[\s?] [NC]
-RewriteRule ^desarrollo-web\.html$ /desarrollo-web/ [R=301,L]
+<FilesMatch "^(package(-lock)?\.json|README\.md|Pixelee\.code-workspace|vercel\.json)$">
+  Require all denied
+</FilesMatch>
 
-RewriteCond %{THE_REQUEST} \s/+desarrollo-a-la-medida\.html[\s?] [NC]
-RewriteRule ^desarrollo-a-la-medida\.html$ /desarrollo-a-la-medida/ [R=301,L]
+<IfModule mod_headers.c>
+  Header set X-Content-Type-Options "nosniff"
+  Header set Referrer-Policy "strict-origin-when-cross-origin"
+</IfModule>
 
-RewriteCond %{THE_REQUEST} \s/+marketing-digital\.html[\s?] [NC]
-RewriteRule ^marketing-digital\.html$ /marketing-digital/ [R=301,L]
-
-RewriteCond %{THE_REQUEST} \s/+diseno-de-marca\.html[\s?] [NC]
-RewriteRule ^diseno-de-marca\.html$ /diseno-de-marca/ [R=301,L]
-
-RewriteRule ^diseño-de-marca/?$ /diseno-de-marca/ [R=301,L]
-RewriteRule ^dise%C3%B1o-de-marca/?$ /diseno-de-marca/ [R=301,L]
-RewriteRule ^diseño-de-paginas-web/?$ /desarrollo-web/ [R=301,L]
-RewriteRule ^dise%C3%B1o-de-paginas-web/?$ /desarrollo-web/ [R=301,L]
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType video/mp4 "access plus 1 month"
+  ExpiresByType audio/mpeg "access plus 1 month"
+</IfModule>
