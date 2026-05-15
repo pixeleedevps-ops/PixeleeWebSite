@@ -1333,10 +1333,18 @@
 .campaign-footer__inner {
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
+  justify-content: center;
+  gap: clamp(1rem, 3vw, 2rem);
   color: rgba(255, 255, 255, 0.68);
   font-size: 0.9rem;
+  text-align: center;
+  flex-wrap: wrap;
+}
+
+.campaign-footer__inner .campaign-logo,
+.campaign-footer__inner span,
+.campaign-footer__inner a {
+  flex: 0 1 auto;
 }
 
 .floating-whatsapp {
@@ -1608,6 +1616,12 @@
   .service-card__image {
     height: 150px;
   }
+
+  .campaign-footer__inner {
+    display: flex;
+    align-items: flex-start;
+    flex-direction: column;
+}
 
   .services-benefits article,
   .services-benefits article + article,
