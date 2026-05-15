@@ -484,174 +484,23 @@
 }
 
 .process-carousel-section {
-  position: relative;
-  overflow: hidden;
-  padding: clamp(4.5rem, 8vw, 8rem) 0;
-  color: #fff;
-  background:
+  --process-section-bg:
     radial-gradient(circle at 82% 18%, rgba(80, 111, 253, 0.18), transparent 28rem),
     radial-gradient(circle at 18% 84%, rgba(206, 240, 10, 0.13), transparent 22rem),
     #050505;
-}
-
-.process-carousel-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  opacity: 0.28;
-  background-image:
-    radial-gradient(circle, rgba(255, 255, 255, 0.34) 1px, transparent 1px),
-    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px);
-  background-size:
-    42px 42px,
-    100% 7px;
-  pointer-events: none;
-}
-
-.process-carousel-section .process-carousel {
-  position: relative;
-  z-index: 1;
-  display: grid;
-  grid-template-columns: minmax(260px, 26vw) minmax(0, 1fr);
-  gap: clamp(2rem, 5vw, 5rem);
-  align-items: start;
-  width: 100%;
-  max-width: none;
-  margin-inline: 0;
-  padding-inline: 0;
-}
-
-.process-carousel__intro {
-  display: grid;
-  gap: 1.25rem;
-  align-content: center;
-  justify-items: start;
-  width: min(100%, 420px);
-  max-width: 420px;
-  margin-left: clamp(1rem, 6vw, 5rem);
-  text-align: left;
-}
-
-.process-carousel__intro .eyebrow {
-  color: var(--brand-lime);
-}
-
-.process-carousel__intro h2 {
-  font-family: var(--font-display);
-  font-size: clamp(3.1rem, 5.6vw, 5.8rem);
-  line-height: 0.9;
-  letter-spacing: -0.05em;
-}
-
-.process-carousel__intro h2 span {
-  display: block;
-}
-
-.process-carousel__intro p:last-of-type {
-  max-width: 34ch;
-  color: rgba(255, 255, 255, 0.78);
-  font-size: clamp(1rem, 1.25vw, 1.12rem);
-  line-height: 1.7;
-}
-
-.process-carousel__controls {
-  display: flex;
-  gap: 0.75rem;
-  margin-top: 0.8rem;
-}
-
-.process-carousel__button {
-  display: grid;
-  place-items: center;
-  width: 3.1rem;
-  height: 3.1rem;
-  color: var(--brand-black);
-  background: var(--brand-lime);
-  border: 0;
-  border-radius: 999px;
-  font-size: 1.2rem;
-  font-weight: 800;
-  cursor: pointer;
-  transition: transform 0.24s var(--ease-out), background 0.24s var(--ease-out);
-}
-
-.process-carousel__button:hover,
-.process-carousel__button:focus-visible {
-  background: #fff;
-  transform: translateY(-2px);
-  outline: none;
-}
-
-.process-carousel__viewport {
-  position: relative;
-  width: 100%;
-  min-width: 0;
-  overflow: hidden;
-}
-
-.process-carousel__viewport::after {
-  content: "";
-  position: absolute;
-  inset: 0 0 0 auto;
-  z-index: 2;
-  width: min(24%, 12rem);
-  background: linear-gradient(90deg, rgba(5, 5, 5, 0), rgba(5, 5, 5, 0.96));
-  pointer-events: none;
-}
-
-.process-carousel__track {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: minmax(320px, 430px);
-  gap: clamp(1rem, 2vw, 1.45rem);
-  overflow-x: auto;
-  overscroll-behavior-inline: contain;
-  scroll-behavior: smooth;
-  scroll-snap-type: inline mandatory;
-  scrollbar-width: none;
-  padding: 0.2rem min(18vw, 12rem) 0.2rem clamp(1rem, 6vw, 5rem);
-}
-
-.process-carousel__track::-webkit-scrollbar {
-  display: none;
+  --process-overlay-opacity: 0.28;
+  --process-button-color: var(--brand-black);
+  --process-button-bg: var(--brand-lime);
+  --process-button-hover-bg: #fff;
+  --process-fade-bg: linear-gradient(90deg, rgba(5, 5, 5, 0), rgba(5, 5, 5, 0.96));
 }
 
 .process-card {
-  display: grid;
-  align-content: space-between;
-  gap: 1.6rem;
-  min-height: 290px;
-  padding: clamp(1.45rem, 2.5vw, 2rem);
-  color: var(--brand-black);
-  border-radius: 18px;
-  scroll-snap-align: start;
-}
-
-.process-card span {
-  display: grid;
-  place-items: center;
-  width: 2.25rem;
-  height: 2.25rem;
-  color: var(--brand-black);
-  background: rgba(0, 0, 0, 0.08);
-  border-radius: 999px;
-  font-family: var(--font-display);
-  font-weight: 700;
-}
-
-.process-card h3 {
-  max-width: 12ch;
-  font-family: var(--font-display);
-  font-size: clamp(1.8rem, 2.4vw, 2.45rem);
-  line-height: 0.96;
-  letter-spacing: -0.045em;
-}
-
-.process-card p {
-  max-width: 31ch;
-  color: rgba(0, 0, 0, 0.78);
-  font-size: clamp(0.98rem, 1.1vw, 1.08rem);
-  line-height: 1.45;
+  --process-card-color: var(--brand-black);
+  --process-card-border: transparent;
+  --process-chip-color: var(--brand-black);
+  --process-chip-bg: rgba(0, 0, 0, 0.08);
+  --process-card-copy: rgba(0, 0, 0, 0.78);
 }
 
 .process-card--soft {
