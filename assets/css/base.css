@@ -100,47 +100,53 @@ video {
   isolation: isolate;
   overflow: hidden;
   font-size: 0.95rem;
-  transition: transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out), border-color 0.35s var(--ease-out);
+  color: var(--cta-base-color, inherit);
+  background: transparent;
+  transition: color 0.35s var(--ease-out), transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out), border-color 0.35s var(--ease-out);
   will-change: transform;
 }
 
-.btn::before {
+.btn::before,
+.btn::after {
   content: "";
   position: absolute;
   inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.btn::before {
+  z-index: -2;
+  background: var(--cta-base-bg, transparent);
+}
+
+.btn::after {
   z-index: -1;
-  background: var(--brand-blue);
-  transform: scaleX(0);
-  transform-origin: left center;
+  background: var(--cta-hover-bg, var(--brand-blue));
+  transform: translateX(-101%);
   transition: transform 0.42s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-.btn[href^="mailto:"] {
-  --cta-base-bg: linear-gradient(110deg, var(--brand-lime), #d8ff4a);
-  background:
-    linear-gradient(90deg, var(--brand-blue) 0 50%, transparent 50% 100%),
-    var(--cta-base-bg);
-  background-size: 200% 100%, 100% 100%;
-  background-position: 100% 0, 0 0;
-  transition: background-position 0.42s cubic-bezier(0.22, 1, 0.36, 1), color 0.35s var(--ease-out), transform 0.35s var(--ease-out), box-shadow 0.35s var(--ease-out), border-color 0.35s var(--ease-out);
+.btn.is-cta-hovering {
+  color: var(--cta-hover-color, #fff);
 }
 
-.btn[href^="mailto:"]::before {
-  content: none;
+.btn.is-cta-hovering::after {
+  transform: translateX(0);
 }
 
-.btn[href^="mailto:"].is-cta-hovering {
-  color: #fff;
-  background-position: 0 0, 0 0;
+.btn.is-cta-leaving {
+  color: var(--cta-base-color, inherit);
 }
 
-.btn[href^="mailto:"].is-cta-leaving {
-  background-position: 100% 0, 0 0;
+.btn.is-cta-leaving::after {
+  transform: translateX(-101%);
 }
 
 .btn-primary {
-  color: var(--brand-black);
-  background: linear-gradient(110deg, var(--brand-lime), #d8ff4a);
+  --cta-base-bg: linear-gradient(110deg, var(--brand-lime), #d8ff4a);
+  --cta-base-color: var(--brand-black);
+  --cta-hover-color: #fff;
   box-shadow: 0 12px 28px rgba(206, 240, 10, 0.24);
 }
 
@@ -150,8 +156,10 @@ video {
 }
 
 .btn-ghost {
+  --cta-base-bg: rgba(255, 255, 255, 0.9);
+  --cta-base-color: var(--text-main);
+  --cta-hover-color: #fff;
   border-color: var(--line);
-  background: rgba(255, 255, 255, 0.9);
 }
 
 .btn-ghost:hover {
@@ -159,20 +167,21 @@ video {
   border-color: var(--accent-2);
 }
 
-.btn-primary[href^="mailto:"] {
-  --cta-base-bg: linear-gradient(110deg, var(--brand-lime), #d8ff4a);
-  background:
-    linear-gradient(90deg, var(--brand-blue) 0 50%, transparent 50% 100%),
-    var(--cta-base-bg);
-  background-size: 200% 100%, 100% 100%;
-  background-position: 100% 0, 0 0;
+.magnetic {
+  transform-style: preserve-3d;
 }
 
-.btn-ghost[href^="mailto:"] {
-  --cta-base-bg: rgba(255, 255, 255, 0.9);
-  background:
-    linear-gradient(90deg, var(--brand-blue) 0 50%, transparent 50% 100%),
-    var(--cta-base-bg);
-  background-size: 200% 100%, 100% 100%;
-  background-position: 100% 0, 0 0;
+.scramble-word,
+.subtitle-word {
+  display: inline-block;
+}
+
+.scramble-word {
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-particle {
+    display: none;
+  }
 }
