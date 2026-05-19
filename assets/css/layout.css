@@ -110,7 +110,7 @@
   width: clamp(10.25rem, 20vw, 16.5rem);
   height: clamp(2.55rem, 1.9vw, 3.35rem);
   flex: 0 0 auto;
-  background: url("../images/brand/Pixelee%20negro.svg") left center / contain no-repeat;
+  background: url("../images/brand/pixelee%20negro.svg") left center / contain no-repeat;
 }
 
 .nav {
