@@ -66,11 +66,11 @@
   width: clamp(13.25rem, 20vw, 16.5rem);
   height: clamp(2.55rem, 3.9vw, 3.35rem);
   flex: 0 0 auto;
-  background: url("../images/brand/Pixelee%20claro.svg") left center / contain no-repeat;
+  background: url("../images/brand/Pixelee\ claro.svg") left center / contain no-repeat;
 }
 
 .campaign-header .campaign-logo::before {
-  background-image: url("../images/brand/Pixelee%20negro.svg");
+  background-image: url("../images/brand/pixelee\ negro.svg");
 }
 
 .campaign-menu {

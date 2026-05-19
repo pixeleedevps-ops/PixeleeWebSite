@@ -275,23 +275,30 @@
         const context = getAudioContext();
 
         if (!context) return;
-        if (context.state === "suspended") context.resume();
 
-        const oscillator = context.createOscillator();
-        const gain = context.createGain();
-        const startTime = context.currentTime;
+        const doPlay = () => {
+          const oscillator = context.createOscillator();
+          const gain = context.createGain();
+          const startTime = context.currentTime;
 
-        oscillator.type = "triangle";
-        oscillator.frequency.setValueAtTime(780, startTime);
-        oscillator.frequency.exponentialRampToValueAtTime(1180, startTime + 0.055);
-        gain.gain.setValueAtTime(0.0001, startTime);
-        gain.gain.exponentialRampToValueAtTime(0.045, startTime + 0.012);
-        gain.gain.exponentialRampToValueAtTime(0.0001, startTime + 0.09);
+          oscillator.type = "triangle";
+          oscillator.frequency.setValueAtTime(780, startTime);
+          oscillator.frequency.exponentialRampToValueAtTime(1180, startTime + 0.055);
+          gain.gain.setValueAtTime(0.0001, startTime);
+          gain.gain.exponentialRampToValueAtTime(0.045, startTime + 0.012);
+          gain.gain.exponentialRampToValueAtTime(0.0001, startTime + 0.09);
 
-        oscillator.connect(gain);
-        gain.connect(context.destination);
-        oscillator.start(startTime);
-        oscillator.stop(startTime + 0.095);
+          oscillator.connect(gain);
+          gain.connect(context.destination);
+          oscillator.start(startTime);
+          oscillator.stop(startTime + 0.095);
+        };
+
+        if (context.state === "suspended") {
+          context.resume().then(doPlay).catch(() => {});
+        } else {
+          doPlay();
+        }
       } catch (error) {
         // Some browsers can still block audio until the first direct interaction.
       }
