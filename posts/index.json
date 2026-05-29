@@ -1,0 +1,40 @@
+[
+  {
+    "slug": "seo-para-empresas",
+    "title": "Cómo mejorar el SEO de tu empresa en 2026",
+    "description": "Aprende las estrategias de SEO más efectivas para posicionar tu negocio en Google y atraer clientes calificados sin pagar publicidad.",
+    "date": "2026-05-22",
+    "author": "Sergio Vásquez",
+    "image": "assets/images/blogs/seo.jpg",
+    "tag": "SEO"
+  },
+  {
+    "slug": "diseno-web-que-convierte",
+    "title": "Diseño web que convierte: los 7 elementos clave",
+    "description": "Descubre qué hace que un sitio web genere resultados reales. Desde la velocidad de carga hasta la arquitectura de conversión.",
+    "date": "2026-05-15",
+    "author": "Sergio Vásquez",
+    "image": "assets/images/blogs/diseno-web.jpg",
+    "tag": "Diseño Web"
+  },
+  {
+    "slug": "marketing-digital-para-pymes",
+    "title": "Marketing digital para pymes: cómo empezar sin perder dinero",
+    "description": "Guía práctica para pequeñas y medianas empresas que quieren hacer marketing digital de manera inteligente y con presupuesto ajustado.",
+    "date": "2026-05-08",
+    "author": "Sergio Vásquez",
+    "image": "assets/images/blogs/marketing.jpg",
+    "tag": "Marketing"
+  },
+  {
+  "slug": "ecommerce-para-pymes",
+  "title": "Ecommerce para pymes: cómo construir tu tienda online exitosa",
+  "description": "Guía práctica para pequeñas y medianas empresas que quieren vender en línea sin desperdiciar tiempo ni dinero en la plataforma equivocada.",
+  "date": "2026-05-08",
+  "author": "Sergio Vásquez",
+  "image": "assets/images/blogs/ecommerce.jpg",
+  "tag": "Ecommerce"
+}
+
+  
+]
