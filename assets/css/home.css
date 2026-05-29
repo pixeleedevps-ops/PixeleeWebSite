@@ -265,10 +265,41 @@
   margin-top: clamp(2rem, 5vw, 4.5rem);
 }
 
+@keyframes marquee-left {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+@keyframes marquee-right {
+  from { transform: translateX(-50%); }
+  to   { transform: translateX(0); }
+}
+
 .clients-marquee__track {
   display: flex;
   width: max-content;
   will-change: transform;
+  animation: marquee-left 34s linear infinite;
+}
+
+.clients-marquee--reverse .clients-marquee__track {
+  animation-name: marquee-right;
+}
+
+.clients-marquee.is-paused .clients-marquee__track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .clients-marquee__track {
+    animation: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .clients-marquee__track {
+    animation-duration: 22s;
+  }
 }
 
 .clients-marquee__group {

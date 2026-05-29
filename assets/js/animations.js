@@ -1724,55 +1724,22 @@
 
   function initClientsMarquee() {
     const section = document.querySelector(".clients-showcase");
+    if (!section) return;
 
-    if (!section || typeof gsap === "undefined" || reduceMotion.matches) return;
-
-    const marquees = gsap.utils.toArray(".clients-marquee");
-
+    const marquees = section.querySelectorAll(".clients-marquee");
     if (!marquees.length) return;
 
-    const marqueeTweens = marquees
-      .map((marquee) => {
-        const track = marquee.querySelector(".clients-marquee__track");
-        if (!track) return null;
-
-        const movesRight = marquee.classList.contains("clients-marquee--reverse");
-
-        return movesRight
-          ? gsap.fromTo(
-              track,
-              { xPercent: -50 },
-              {
-                xPercent: 0,
-                duration: useLiteMode ? 46 : 34,
-                repeat: -1,
-                ease: "none"
-              }
-            )
-          : gsap.to(track, {
-              xPercent: -50,
-              duration: useLiteMode ? 46 : 34,
-              repeat: -1,
-              ease: "none"
-            });
-      })
-      .filter(Boolean);
-
     if ("IntersectionObserver" in window) {
-      marqueeTweens.forEach((tween) => tween.pause());
-
       const visibilityObserver = new IntersectionObserver((entries) => {
         const isVisible = entries[0]?.isIntersecting ?? true;
-        marqueeTweens.forEach((tween) => {
-          if (isVisible) tween.play();
-          else tween.pause();
-        });
+        marquees.forEach((marquee) => marquee.classList.toggle("is-paused", !isVisible));
       });
-
       visibilityObserver.observe(section);
     }
 
-    if (typeof ScrollTrigger === "undefined" || useLiteMode) return;
+    if (typeof gsap === "undefined" || typeof ScrollTrigger === "undefined" || useLiteMode || reduceMotion.matches) return;
+
+    gsap.registerPlugin(ScrollTrigger);
 
     gsap.to(".clients-marquee__group", {
       y: -24,
