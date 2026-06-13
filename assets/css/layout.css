@@ -574,10 +574,11 @@
 .hero {
   position: relative;
   overflow: visible;
-  min-height: 65vh;
+  min-height: 88vh;
+  margin-top: -118px;
   display: flex;
   align-items: center;
-  background: var(--brand-white);
+  background: var(--brand-blue);
   z-index: 2;
   isolation: isolate;
 }
@@ -587,8 +588,8 @@
   inset: 0;
   z-index: 0;
   background-image:
-    linear-gradient(rgba(0, 0, 0, 0.035) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 0, 0, 0.035) 1px, transparent 1px);
+    linear-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
   background-size: 100% 100%, 24% 100%;
   pointer-events: none;
 }
@@ -605,9 +606,9 @@
   position: absolute;
   top: 0;
   width: 12.5vw;
-  background: #ffffff;
-  border-left: 1px solid rgba(0, 0, 0, 0.045);
-  border-right: 1px solid rgba(0, 0, 0, 0.035);
+  background: var(--brand-blue);
+  border-left: 1px solid rgba(255, 255, 255, 0.14);
+  border-right: 1px solid rgba(255, 255, 255, 0.08);
   backface-visibility: hidden;
   transform: translate3d(0, 0, 0);
   will-change: transform;
@@ -641,11 +642,11 @@
   position: relative;
   z-index: 3;
   width: 100%;
-  min-height: 65vh;
+  min-height: 92vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: clamp(3rem, 6vw, 5rem) 0;
+  padding: calc(clamp(4rem, 7vw, 6rem) + 108px) 0 clamp(4rem, 7vw, 6rem);
 }
 
 .hero-content-inner {
@@ -664,12 +665,13 @@
   line-height: 0.95;
   letter-spacing: -0.03em;
   max-width: 19ch;
+  color: var(--brand-white);
 }
 
 .hero-subtitle {
   max-width: 700px;
   margin-top: 1.4rem;
-  color: var(--text-soft);
+  color: rgba(255, 255, 255, 0.82);
   font-size: clamp(1.05rem, 1.5vw, 1.18rem);
   line-height: 1.7;
 }
@@ -703,7 +705,8 @@
   z-index: 0;
 }
 
-.about-us__media iframe {
+.about-us__media iframe,
+.about-us__media video {
   position: absolute;
   inset: 0;
   width: 100%;
@@ -712,6 +715,7 @@
   min-height: 120%;
   transform: none;
   border: 0;
+  object-fit: cover;
   pointer-events: none;
 }
 
@@ -1493,6 +1497,7 @@
 
   .hero-copy {
     min-height: 90vh;
+    padding: calc(clamp(3rem, 6vw, 4rem) + 108px) 0 clamp(3rem, 6vw, 4rem);
   }
 
   .benefits-section__content {
@@ -1694,7 +1699,7 @@
 
   .hero-copy {
     min-height: 80vh;
-    padding: clamp(2rem, 5vw, 3rem) 0;
+    padding: calc(clamp(2rem, 5vw, 3rem) + 108px) 0 clamp(2rem, 5vw, 3rem);
   }
 
   .hero-content-inner {
@@ -1745,7 +1750,8 @@
     font-size: clamp(1.8rem, 10vw, 2.4rem);
   }
 
-  .about-us__media iframe {
+  .about-us__media iframe,
+  .about-us__media video {
     height: 100%;
     min-height: 100%;
   }
