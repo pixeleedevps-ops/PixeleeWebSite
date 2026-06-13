@@ -594,6 +594,11 @@
   width: min(1280px, calc(100vw - clamp(2rem, 5vw, 4rem)));
 }
 
+.packages-grid--three {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: min(1100px, calc(100vw - clamp(2rem, 5vw, 4rem)));
+}
+
 .package-card {
   --package-accent: var(--brand-blue);
   display: grid;
