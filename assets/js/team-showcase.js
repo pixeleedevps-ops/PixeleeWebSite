@@ -1,22 +1,16 @@
 (function () {
   const teamMembers = [
     {
-      name: "Luna Dávila",
-      role: "CDO",
-      image: "images/team/luna-davila.jpg",
-      alt: "Luna Dávila, CDO de Pixelee"
-    },
-    {
       name: "Sergio Vásquez",
       role: "CEO",
       image: "images/team/sergio-vasquez.jpg",
       alt: "Sergio Vásquez, CEO de Pixelee"
     },
     {
-      name: "Germán Arévalo",
-      role: "CTO",
-      image: "images/team/german-arevalo.jpg",
-      alt: "Germán Arévalo, CTO de Pixelee"
+      name: "Alejandro Acosta",
+      role: "COO",
+      image: "images/team/alejandro-acosta.jpg",
+      alt: "Alejandro Acosta, COO de Pixelee"
     },
     {
       name: "Fabián Hernández",
@@ -25,10 +19,16 @@
       alt: "Fabián Hernández, CFO de Pixelee"
     },
     {
-      name: "Alejandro Acosta",
-      role: "COO",
-      image: "images/team/alejandro-acosta.jpg",
-      alt: "Alejandro Acosta, COO de Pixelee"
+      name: "Luna Dávila",
+      role: "CDO",
+      image: "images/team/luna-davila.jpg",
+      alt: "Luna Dávila, CDO de Pixelee"
+    },
+    {
+      name: "Germán Arévalo",
+      role: "CTO",
+      image: "images/team/german-arevalo.jpg",
+      alt: "Germán Arévalo, CTO de Pixelee"
     },
     {
       name: "Próxima integrante",
@@ -57,6 +57,11 @@
 
   if (!leftList || !rightList || !image || !name || !role) return;
 
+  const mobileCarousel = document.createElement("div");
+  mobileCarousel.className = "team-showcase__mobile-carousel";
+  mobileCarousel.setAttribute("aria-label", "Carrusel de integrantes del equipo");
+  showcase.appendChild(mobileCarousel);
+
   const autoplayIndexes = teamMembers
     .map((member, index) => (member.isUpcoming ? null : index))
     .filter((index) => index !== null);
@@ -66,6 +71,7 @@
   let isPausedByUser = false;
   let swapTimer = 0;
   const buttons = [];
+  const mobileCards = [];
 
   function createMemberButton(member, index) {
     const button = document.createElement("button");
@@ -114,6 +120,36 @@
     return button;
   }
 
+  function createMobileCard(member, index) {
+    const card = document.createElement("button");
+    card.type = "button";
+    card.className = "team-showcase__mobile-card";
+    card.dataset.teamIndex = String(index);
+    card.setAttribute("aria-label", `${member.name}, ${member.role}`);
+
+    if (member.isUpcoming) {
+      card.classList.add("is-upcoming");
+      card.setAttribute("aria-label", "Espacio reservado para próxima integrante");
+    }
+
+    card.innerHTML = `
+      <span class="team-showcase__mobile-kicker">${member.role}</span>
+      <strong class="team-showcase__mobile-name">${member.name}</strong>
+      <span class="team-showcase__mobile-photo">
+        <img src="${assetUrl(member.image)}" alt="${member.alt}" width="720" height="900" loading="lazy" decoding="async">
+      </span>
+    `;
+
+    card.addEventListener("click", () => {
+      setActiveMember(index, true);
+      stopAutoplay();
+      startAutoplay();
+    });
+
+    mobileCards[index] = card;
+    return card;
+  }
+
   function renderTeamLists() {
     const splitIndex = Math.ceil(teamMembers.length / 2);
 
@@ -121,6 +157,7 @@
       const button = createMemberButton(member, index);
       const targetList = index < splitIndex ? leftList : rightList;
       targetList.appendChild(button);
+      mobileCarousel.appendChild(createMobileCard(member, index));
     });
   }
 
@@ -130,6 +167,23 @@
       button.classList.toggle("is-active", isActive);
       button.setAttribute("aria-pressed", isActive ? "true" : "false");
     });
+
+    mobileCards.forEach((card, cardIndex) => {
+      const isActive = cardIndex === index;
+      card.classList.toggle("is-active", isActive);
+      card.setAttribute("aria-pressed", isActive ? "true" : "false");
+    });
+
+    if (window.matchMedia("(max-width: 960px)").matches) {
+      const activeCard = mobileCards[index];
+
+      if (activeCard) {
+        mobileCarousel.scrollTo({
+          left: activeCard.offsetLeft - ((mobileCarousel.clientWidth - activeCard.clientWidth) / 2),
+          behavior: "smooth"
+        });
+      }
+    }
   }
 
   function setActiveMember(index, immediate = false) {
