@@ -1567,13 +1567,13 @@
     min-height: auto;
     margin-top: -56px;
     padding-top: 180px;
-    padding-bottom: 40px;
+    padding-bottom: 88px;
   }
 
   .about-us__content {
     min-height: auto;
     width: min(100% - 2rem, var(--container));
-    padding: 5.5rem 0 2.25rem;
+    padding: 5.5rem 0 4.5rem;
   }
 
   .about-us__content h2 {
@@ -1754,13 +1754,13 @@
   .about-us {
     margin-top: -40px;
     padding-top: 155px;
-    padding-bottom: 32px;
+    padding-bottom: 76px;
   }
 
   .about-us__content {
     min-height: auto;
     width: min(100% - 1.5rem, var(--container));
-    padding: 5rem 0 1.75rem;
+    padding: 5rem 0 4rem;
   }
 
   .about-us__content h2 {
