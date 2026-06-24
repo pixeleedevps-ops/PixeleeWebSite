@@ -819,7 +819,8 @@
     let distances = [];
     const updateDistances = () => {
       const targetBottom = hero.offsetHeight * 1.20;
-      distances = columns.map((column) => Math.max(0, targetBottom - column.offsetHeight));
+      const responsiveTravel = window.matchMedia("(max-width: 620px)").matches ? 0.7 : 1;
+      distances = columns.map((column) => Math.max(0, targetBottom - column.offsetHeight) * responsiveTravel);
     };
     const getColumnProgress = gsap.utils.clamp(0, 1);
 
@@ -1576,7 +1577,7 @@
       "rgba(255, 146, 77,",
       "rgba(255, 255, 255,"
     ];
-    const glyphs = [".", "+", "$", "·"];
+    const glyphs = [".", "+", "*", "·"];
     const pointer = { x: -9999, y: -9999, active: false };
     const particles = [];
     let width = 0;

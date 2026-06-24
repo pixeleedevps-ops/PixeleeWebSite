@@ -1451,6 +1451,10 @@
     justify-self: start;
   }
 
+  .logo::before {
+    background-image: url("../images/brand/pixelee-negro-header.png");
+  }
+
   .nav-toggle {
     display: grid;
   }
@@ -1560,20 +1564,26 @@
   }
 
   .about-us {
-    min-height: 100vh;
+    min-height: auto;
     margin-top: -56px;
-    padding-top: 140px;
-    padding-bottom: 80px;
+    padding-top: 180px;
+    padding-bottom: 40px;
   }
 
   .about-us__content {
     min-height: auto;
-    padding: 6rem 0;
+    width: min(100% - 2rem, var(--container));
+    padding: 5.5rem 0 2.25rem;
   }
 
   .about-us__content h2 {
-    font-size: clamp(2.4rem, 13vw, 4rem);
-    max-width: 10ch;
+    font-size: clamp(2.35rem, 12vw, 3.35rem);
+    max-width: 100%;
+    letter-spacing: -0.025em;
+  }
+
+  .about-us__content p {
+    max-width: 100%;
   }
 
   .benefits-section__shade {
@@ -1684,6 +1694,7 @@
   .logo::before {
     width: 10.7rem;
     height: 2.15rem;
+    background-image: url("../images/brand/pixelee-negro-header.png");
   }
 
   .nav {
@@ -1742,17 +1753,19 @@
 
   .about-us {
     margin-top: -40px;
-    padding-top: 100px;
-    padding-bottom: 60px;
+    padding-top: 155px;
+    padding-bottom: 32px;
   }
 
   .about-us__content {
     min-height: auto;
-    padding: 4rem 0;
+    width: min(100% - 1.5rem, var(--container));
+    padding: 5rem 0 1.75rem;
   }
 
   .about-us__content h2 {
-    font-size: clamp(1.8rem, 10vw, 2.4rem);
+    font-size: clamp(2rem, 10.5vw, 2.85rem);
+    max-width: 100%;
   }
 
   .about-us__media iframe,

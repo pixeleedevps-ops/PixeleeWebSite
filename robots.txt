@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+# /beneficios/ no se incluye en el sitemap y debe poder rastrearse
+# para que los motores lean su meta noindex.
 
 Sitemap: https://pixelee.co/sitemap.xml
