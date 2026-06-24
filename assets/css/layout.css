@@ -573,12 +573,13 @@
 /* HERO */
 .hero {
   position: relative;
+  --hero-background: #f0f0f0;
   overflow: visible;
   min-height: 88vh;
   margin-top: -118px;
   display: flex;
   align-items: center;
-  background: var(--brand-blue);
+  background: var(--hero-background);
   z-index: 2;
   isolation: isolate;
 }
@@ -588,8 +589,8 @@
   inset: 0;
   z-index: 0;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.12) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.12) 1px, transparent 1px);
+    linear-gradient(rgba(0, 0, 0, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 0, 0, 0.045) 1px, transparent 1px);
   background-size: 100% 100%, 24% 100%;
   pointer-events: none;
 }
@@ -606,9 +607,9 @@
   position: absolute;
   top: 0;
   width: 12.5vw;
-  background: var(--brand-blue);
-  border-left: 1px solid rgba(255, 255, 255, 0.14);
-  border-right: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--hero-background);
+  border-left: 1px solid rgba(0, 0, 0, 0.08);
+  border-right: 1px solid rgba(255, 255, 255, 0.38);
   backface-visibility: hidden;
   transform: translate3d(0, 0, 0);
   will-change: transform;
@@ -665,13 +666,17 @@
   line-height: 0.95;
   letter-spacing: -0.03em;
   max-width: 19ch;
-  color: var(--brand-white);
+  color: var(--brand-black);
+}
+
+.hero-title__highlight {
+  color: var(--brand-blue);
 }
 
 .hero-subtitle {
   max-width: 700px;
   margin-top: 1.4rem;
-  color: rgba(255, 255, 255, 0.82);
+  color: rgba(0, 0, 0, 0.72);
   font-size: clamp(1.05rem, 1.5vw, 1.18rem);
   line-height: 1.7;
 }
