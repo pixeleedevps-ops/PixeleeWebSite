@@ -144,21 +144,48 @@
 
   function wrapWords(element, className) {
     const text = element.textContent.trim().replace(/\s+/g, " ");
-    const words = text.split(" ");
+    const tokens = [];
 
     element.setAttribute("aria-label", text);
+
+    const collectTokens = (node, inheritedClass = "") => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        node.textContent
+          .trim()
+          .replace(/\s+/g, " ")
+          .split(" ")
+          .filter(Boolean)
+          .forEach((word) => {
+            tokens.push({
+              text: word,
+              extraClass: inheritedClass
+            });
+          });
+        return;
+      }
+
+      if (node.nodeType !== Node.ELEMENT_NODE) return;
+
+      const nextClass = node.classList.contains("hero-title__highlight")
+        ? "hero-title__highlight"
+        : inheritedClass;
+
+      node.childNodes.forEach((child) => collectTokens(child, nextClass));
+    };
+
+    element.childNodes.forEach((node) => collectTokens(node));
     element.textContent = "";
 
-    return words.map((word, index) => {
+    return tokens.map((token, index) => {
       const span = document.createElement("span");
-      span.className = className;
-      span.dataset.text = word;
+      span.className = token.extraClass ? `${className} ${token.extraClass}` : className;
+      span.dataset.text = token.text;
       span.setAttribute("aria-hidden", "true");
-      span.textContent = word;
+      span.textContent = token.text;
 
       element.appendChild(span);
 
-      if (index < words.length - 1) {
+      if (index < tokens.length - 1) {
         element.appendChild(document.createTextNode(" "));
       }
 

@@ -3,6 +3,7 @@
  */
 
 const POST_BASE = './';
+const DISPLAY_AUTHOR = 'Equipo Pixelee';
 
 /* ── helpers ── */
 
@@ -242,21 +243,23 @@ function renderPost(post) {
     : '';
 
   /* Meta row */
+  const visibleAuthor = post.author ? DISPLAY_AUTHOR : '';
+
   const metaHtml = [
     post.tag    ? `<span class="post-header__tag">${post.tag}</span>` : '',
     post.date   ? `<span class="post-header__date">${formatDate(post.date)}</span>` : '',
-    post.author ? `<span class="post-header__author">por ${post.author}</span>` : '',
+    visibleAuthor ? `<span class="post-header__author">por ${visibleAuthor}</span>` : '',
   ].join('');
 
   /* Author card */
-  const authorHtml = post.author ? `
-<div class="post-author" itemscope itemtype="https://schema.org/Person">
-  <div class="post-author__avatar" aria-hidden="true">${initials(post.author)}</div>
+  const authorHtml = visibleAuthor ? `
+<div class="post-author" itemscope itemtype="https://schema.org/Organization">
+  <div class="post-author__avatar" aria-hidden="true">${initials(visibleAuthor)}</div>
   <div class="post-author__info">
-    <strong class="post-author__name" itemprop="name">${post.author}</strong>
+    <strong class="post-author__name" itemprop="name">${visibleAuthor}</strong>
     <span class="post-author__role">Pixelee</span>
     <p class="post-author__bio">
-      Especialista en estrategia digital, diseño web y crecimiento de negocios en Colombia.
+      Equipo de estrategia, diseño, marketing y desarrollo web para negocios en Colombia.
     </p>
   </div>
 </div>` : '';
@@ -276,7 +279,7 @@ function renderPost(post) {
     <meta itemprop="headline"      content="${post.title}">
     <meta itemprop="description"   content="${post.description || ''}">
     <meta itemprop="datePublished" content="${post.date || ''}">
-    <meta itemprop="author"        content="${post.author || ''}">
+    <meta itemprop="author"        content="${visibleAuthor || ''}">
     ${post.image ? `<meta itemprop="image" content="${window.location.origin}/${post.image}">` : ''}
 
     <div class="post-header__meta">${metaHtml}</div>
