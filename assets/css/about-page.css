@@ -7,7 +7,8 @@
 }
 
 .about-page {
-  --about-container: min(1500px, 100vw);
+  --about-page-gutter: clamp(1.25rem, 4vw, 4rem);
+  --about-container: min(1500px, calc(100vw - var(--about-page-gutter) - var(--about-page-gutter)));
   --about-header-overlap: 108px;
   background: #fff;
   color: var(--brand-black);
@@ -312,6 +313,10 @@
   letter-spacing: -0.05em;
 }
 
+.team-showcase__mobile-carousel {
+  display: none;
+}
+
 @media (max-width: 960px) {
   .about-hero__inner,
   .about-story__inner {
@@ -319,7 +324,7 @@
   }
 
   .about-hero__inner {
-    margin: 0 1.5rem;
+    margin: 0;
   }
 
   .about-hero__copy h1,
@@ -332,44 +337,113 @@
   }
 
   .team-showcase {
-    grid-template-columns: minmax(0, 1fr);
-    gap: 1.4rem;
+    display: block;
+    width: 100%;
   }
 
-  .team-showcase__stage {
-    order: -1;
-  }
-
+  .team-showcase__stage,
   .team-showcase__list {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 0.7rem 1rem;
+    display: none;
   }
 
-  .team-showcase__list--right .team-showcase__member {
+  .team-showcase__mobile-carousel {
+    display: flex;
+    gap: 1rem;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    padding: 0.2rem max(1rem, calc((100vw - var(--about-container)) / 2)) 1.1rem;
+    margin: 0;
+    scroll-snap-type: x mandatory;
+    scroll-padding-inline: 1rem;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .team-showcase__mobile-carousel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .team-showcase__mobile-card {
+    flex: 0 0 min(76vw, 360px);
+    display: grid;
+    gap: 0.75rem;
+    padding: 0;
+    color: rgba(0, 0, 0, 0.48);
     text-align: left;
+    background: transparent;
+    border: 0;
+    scroll-snap-align: center;
+    cursor: pointer;
+    transition: color 0.28s var(--ease-out), transform 0.28s var(--ease-out);
   }
 
-  .team-showcase__list--right .team-showcase__member::after {
-    transform-origin: left;
+  .team-showcase__mobile-card.is-active {
+    color: var(--brand-black);
+    transform: translateY(-3px);
   }
 
-  .team-showcase__image-wrap {
-    min-height: clamp(360px, 72vw, 540px);
+  .team-showcase__mobile-kicker {
+    color: var(--brand-blue);
+    font-size: 0.72rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+  }
+
+  .team-showcase__mobile-name {
+    display: block;
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 8vw, 3rem);
+    line-height: 0.95;
+    letter-spacing: -0.045em;
+  }
+
+  .team-showcase__mobile-photo {
+    position: relative;
+    display: block;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 22px;
+    background: #080a13;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.14);
+  }
+
+  .team-showcase__mobile-photo::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 2px solid transparent;
+    border-radius: inherit;
+    pointer-events: none;
+    transition: border-color 0.28s var(--ease-out);
+  }
+
+  .team-showcase__mobile-card.is-active .team-showcase__mobile-photo::after {
+    border-color: var(--brand-blue);
+  }
+
+  .team-showcase__mobile-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+  }
+
+  .team-showcase__mobile-card.is-upcoming .team-showcase__mobile-photo img {
+    object-fit: contain;
+    padding: 18%;
   }
 }
 
 @media (max-width: 620px) {
-  .team-showcase__list {
-    grid-template-columns: 1fr;
+  .team-showcase__mobile-card {
+    flex-basis: min(82vw, 340px);
   }
 
-  .team-showcase__image-wrap {
-    min-height: 410px;
-    border-radius: 22px;
-  }
-
-  .team-showcase__member-name {
-    font-size: clamp(1.35rem, 8vw, 2.2rem);
+  .team-showcase__mobile-name {
+    font-size: clamp(1.9rem, 10vw, 2.85rem);
   }
 }
 
@@ -453,22 +527,15 @@
     gap: 1rem;
   }
 
-  .team-showcase__image-wrap {
-    min-height: 340px;
+  .team-showcase__mobile-carousel {
+    padding-bottom: 0.8rem;
+  }
+
+  .team-showcase__mobile-card {
+    flex-basis: min(84vw, 320px);
+  }
+
+  .team-showcase__mobile-photo {
     border-radius: 18px;
-  }
-
-  .team-showcase__caption {
-    left: 1rem;
-    right: 1rem;
-    bottom: 1rem;
-  }
-
-  .team-showcase__caption strong {
-    font-size: clamp(1.75rem, 11vw, 2.5rem);
-  }
-
-  .team-showcase__member {
-    padding: 0.8rem 0;
   }
 }
