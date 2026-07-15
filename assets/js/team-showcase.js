@@ -3,7 +3,7 @@
     {
       name: "Sergio Vásquez",
       role: "CEO",
-      image: "images/team/Sergio-Vasquez.jpeg",
+      image: "images/team/Sergio-Vasquez.jpg",
       alt: "Sergio Vásquez, CEO de Pixelee"
     },
     {
