@@ -489,8 +489,7 @@
 
 .campaign-section_price {
   padding: clamp(2rem, 10vw, 1rem) 0;
-  background:
-    var(--campaign-blue);
+  background: #506EFA;
 }
 
 
