@@ -17,12 +17,13 @@
     <meta name="twitter:title" content="Crea una página web que venda | Diseño web en Colombia" />
     <meta name="twitter:description" content="¿Sigues buscando páginas web gratis? No pierdas el tiempo, En Pixelee desarrollamos sitios web profesionales, rápidos y optimizados para convertir visitantes en clientes reales. Haz que tu negocio destaque en internet" />
     <meta name="twitter:image" content="https://pixelee.co/assets/images/brand/pixelee-isotype-512.png" />
+    <meta name="google-sheets-leads-webhook" content="https://script.google.com/macros/s/AKfycbzIscVLplrOfgC3P-CTDzPDsUqxMvegypTGV53Ze32nvIk-EA0GRScSHg8kEkPl9qOP/exec" />
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Service",
         "name": "Desarrollo de páginas web en Colombia",
-        "telephone": "+57 321 4962317"
+        "telephone": "+57 321 4962317",
         "provider": {
           "@type": "Organization",
           "name": "Pixelee",
@@ -495,6 +496,56 @@
       </div>
     </footer>
 
+    <div class="lead-popup" data-lead-popup aria-hidden="true">
+      <div class="lead-popup__backdrop" data-lead-popup-close></div>
+      <aside class="lead-popup__panel" role="dialog" aria-modal="true" aria-labelledby="lead-popup-title">
+        <button class="lead-popup__close" type="button" data-lead-popup-close aria-label="Cerrar formulario">X</button>
+        <div class="lead-popup__intro">
+          <p class="lead-popup__eyebrow">Asesoria gratuita</p>
+          <h2 id="lead-popup-title">Agenda tu asesoria gratuita</h2>
+          <p><strong>Tu competencia tiene una web ¿que esperas para tener la tuya?</strong></p>
+          <p>Este mes tenemos <strong class="lead-popup__discount">15% de descuento</strong> en nuestros productos de desarrollo.</p>
+        </div>
+        <div class="lead-countdown" data-lead-countdown aria-label="Tiempo restante de la promocion">
+          <div><strong data-countdown-days>00</strong><span>Dias</span></div>
+          <div><strong data-countdown-hours>00</strong><span>Horas</span></div>
+          <div><strong data-countdown-minutes>00</strong><span>Minutos</span></div>
+          <div><strong data-countdown-seconds>00</strong><span>Segundos</span></div>
+        </div>
+        <form class="lead-form" data-lead-form>
+          <div class="lead-form__row">
+            <label>
+              <span>Nombre completo</span>
+              <input type="text" name="nombre_y_apellidos" autocomplete="name" required />
+            </label>
+            <label>
+              <span>Numero de WhatsApp</span>
+              <input type="tel" name="numero_de_telefono" autocomplete="tel" inputmode="tel" required />
+            </label>
+          </div>
+          <label>
+            <span>A que se dedica</span>
+            <textarea name="tipo_de_negocio" rows="2" required placeholder="Cuéntanos brevemente sobre tu negocio"></textarea>
+          </label>
+          <label>
+            <span>Presupuesto para invertir en desarrollo web</span>
+            <select name="presupuesto" required>
+              <option value="" selected disabled>Selecciona tu presupuesto</option>
+              <option value="600.000 COP a 1.000.000 COP">600.000 COP a 1.000.000 COP</option>
+              <option value="1.000.000 COP a 2.000.000 COP">1.000.000 COP a 2.000.000 COP</option>
+              <option value="Mas de 2.000.000 COP">Mas de 2.000.000 COP</option>
+            </select>
+          </label>
+          <label class="lead-form__privacy">
+            <input type="checkbox" name="privacidad" required />
+            <span>Acepto las politicas de privacidad y autorizo el contacto comercial.</span>
+          </label>
+          <button class="btn btn-primary magnetic lead-form__submit" type="submit">QUIERO MI ASESORIA</button>
+          <p class="lead-form__status" data-lead-form-status role="status" aria-live="polite"></p>
+        </form>
+      </aside>
+    </div>
+
     <a class="floating-whatsapp" data-track="cta.whatsapp.floating" href="https://wa.link/av6sjz" aria-label="Escribir por WhatsApp">W</a>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -661,6 +712,149 @@
           activeCell = null;
         });
         window.addEventListener("resize", buildGrid);
+      })();
+
+      (() => {
+        const popup = document.querySelector("[data-lead-popup]");
+        const form = document.querySelector("[data-lead-form]");
+        const status = document.querySelector("[data-lead-form-status]");
+        if (!popup || !form) return;
+
+        const endpoint = window.PIXELEE_LEADS_ENDPOINT || document.querySelector("meta[name='google-sheets-leads-webhook']")?.content || "";
+        const emailTo = "pixeleeco@gmail.com";
+        const closeButtons = Array.from(document.querySelectorAll("[data-lead-popup-close]"));
+        const pad = (value) => String(value).padStart(2, "0");
+        let popupQueued = false;
+
+        const getMonthDeadline = () => {
+          const now = new Date();
+          return new Date(now.getFullYear(), now.getMonth(), 30, 23, 59, 59);
+        };
+
+        const updateCountdown = () => {
+          const diff = Math.max(0, getMonthDeadline().getTime() - Date.now());
+          const days = Math.floor(diff / 86400000);
+          const hours = Math.floor((diff % 86400000) / 3600000);
+          const minutes = Math.floor((diff % 3600000) / 60000);
+          const seconds = Math.floor((diff % 60000) / 1000);
+
+          popup.querySelector("[data-countdown-days]").textContent = pad(days);
+          popup.querySelector("[data-countdown-hours]").textContent = pad(hours);
+          popup.querySelector("[data-countdown-minutes]").textContent = pad(minutes);
+          popup.querySelector("[data-countdown-seconds]").textContent = pad(seconds);
+        };
+
+        const openPopup = () => {
+          popup.classList.remove("is-closing");
+          popup.classList.add("is-open");
+          popup.setAttribute("aria-hidden", "false");
+          document.body.classList.add("lead-popup-open");
+          window.setTimeout(() => form.querySelector("input")?.focus(), 450);
+        };
+
+        const closePopup = () => {
+          if (!popup.classList.contains("is-open") || popup.classList.contains("is-closing")) return;
+
+          popup.classList.add("is-closing");
+          window.setTimeout(() => {
+            popup.classList.remove("is-open", "is-closing");
+            popup.setAttribute("aria-hidden", "true");
+            document.body.classList.remove("lead-popup-open");
+          }, 620);
+        };
+
+        const getFieldValue = (formData, fieldName) => String(formData.get(fieldName) || "").trim();
+
+        const buildPayload = () => {
+          const formData = new FormData(form);
+          const budget = getFieldValue(formData, "presupuesto");
+          const tipoNegocio = getFieldValue(formData, "tipo_de_negocio");
+          const nombre = getFieldValue(formData, "nombre_y_apellidos");
+          const telefono = getFieldValue(formData, "numero_de_telefono");
+          const privacidad = formData.get("privacidad") ? "true" : "false";
+          const aceptoPoliticas = privacidad === "true" ? "El cliente acepto las politicas" : "El cliente no acepto las politicas";
+          const comentarios = [
+            `Presupuesto: ${budget}`,
+            aceptoPoliticas,
+          ].join(". ");
+
+          return {
+            tipo_de_negocio: tipoNegocio,
+            nombre_y_apellidos: nombre,
+            numero_de_telefono: telefono,
+            "número_de_teléfono": telefono,
+            presupuesto: budget,
+            privacidad,
+            acepto_politicas: privacidad,
+            comentarios,
+            Comentarios: comentarios,
+            platform: "GOOGLE",
+            campaign_name: "Campaña de agosto",
+            source_url: window.location.href,
+            submitted_at: new Date().toISOString(),
+          };
+        };
+
+        const sendFallbackEmail = (payload) => {
+          const subject = encodeURIComponent("Nuevo lead desarrollo web - Campaña de agosto");
+          const body = encodeURIComponent(Object.entries(payload).map(([key, value]) => `${key}: ${value}`).join("\n"));
+          window.location.href = `mailto:${emailTo}?subject=${subject}&body=${body}`;
+        };
+
+        form.addEventListener("submit", async (event) => {
+          event.preventDefault();
+          if (!form.reportValidity()) return;
+
+          const payload = buildPayload();
+          const submitButton = form.querySelector("button[type='submit']");
+          submitButton.disabled = true;
+          status.textContent = "Enviando tu solicitud...";
+
+          try {
+            if (!endpoint) throw new Error("Missing Google Sheets endpoint");
+
+            await fetch(endpoint, {
+              method: "POST",
+              mode: "no-cors",
+              headers: {
+                "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8",
+              },
+              body: new URLSearchParams(payload),
+            });
+
+            status.textContent = "Listo. Recibimos tus datos y te contactaremos pronto.";
+            form.reset();
+            window.setTimeout(closePopup, 2400);
+          } catch (error) {
+            status.textContent = "No se encontro el endpoint de Sheets. Abriremos un correo con tus datos.";
+            sendFallbackEmail(payload);
+          } finally {
+            submitButton.disabled = false;
+          }
+        });
+
+        closeButtons.forEach((button) => button.addEventListener("click", closePopup));
+        window.addEventListener("keydown", (event) => {
+          if (event.key === "Escape") closePopup();
+        });
+
+        const showAfterScrollProgress = () => {
+          if (popupQueued || popup.classList.contains("is-open")) return;
+
+          const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight;
+          const scrollProgress = scrollableHeight <= 0 ? 1 : window.scrollY / scrollableHeight;
+
+          if (scrollProgress < 0.3) return;
+
+          popupQueued = true;
+          window.removeEventListener("scroll", showAfterScrollProgress);
+          window.setTimeout(openPopup, 2000);
+        };
+
+        updateCountdown();
+        window.setInterval(updateCountdown, 1000);
+        window.addEventListener("scroll", showAfterScrollProgress, { passive: true });
+        showAfterScrollProgress();
       })();
     </script>
   </body>
